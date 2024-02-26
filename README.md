@@ -8,7 +8,7 @@ AgriSync es un proyecto universitario desarrollado para el Banco de Agricultura 
 - 
 
 ## Materia
-Desarrollo de Software Avanzado
+Desarrollo de Aplic. Web con Soft. Interpret. en el Servidor
 
 ## Tecnologías
 - PHP
