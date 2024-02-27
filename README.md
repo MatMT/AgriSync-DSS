@@ -5,7 +5,7 @@ AgriSync es un proyecto universitario desarrollado para el Banco de Agricultura 
 
 ## Integrantes
 - Oscar Mateo Elías López 🧑‍💻
-- 
+- Victor Rafael Cornejo Garcia 👳🏻‍♂️
 
 ## Materia
 Desarrollo de Aplic. Web con Soft. Interpret. en el Servidor
