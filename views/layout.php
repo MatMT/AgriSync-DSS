@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="bg-gray-200">
+<body class="bg-gray-50">
     <?php
     include_once __DIR__ . '/templates/header.php';
     echo $contenido;

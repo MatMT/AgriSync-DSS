@@ -4,9 +4,12 @@ require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
 use Controllers\AuthController;
+use Controllers\HomeController;
 
 $router = new Router();
 
+// HomePage
+$router->get('/', [HomeController::class, 'index']);
 
 // Login
 $router->get('/login', [AuthController::class, 'login']);

@@ -1,1 +1,0 @@
-<p class="text-4xl text-center">Pagina 1</p>
