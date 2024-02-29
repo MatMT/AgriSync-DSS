@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Inter", sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -549,7 +549,19 @@ video {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
+.text-center {
+  text-align: center;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
