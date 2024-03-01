@@ -3,12 +3,14 @@
 require_once __DIR__ . '/../includes/app.php';
 
 use MVC\Router;
+// Clases importadas
 use Controllers\AuthController;
 use Controllers\HomeController;
 
+// Instanciando Router para el manejo de rutas
 $router = new Router();
 
-// HomePage
+// HomePage - Función que asigna URL, Controllador y su Función
 $router->get('/', [HomeController::class, 'index']);
 
 // Login
