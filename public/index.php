@@ -1,39 +1,55 @@
 <?php
 
-require_once __DIR__ . '/../includes/app.php';
+use Illuminate\Contracts\Http\Kernel;
+use Illuminate\Http\Request;
 
-use Controllers\LoginController;
-use MVC\Router;
-// Clases importadas
-use Controllers\AuthController;
-use Controllers\HomeController;
+define('LARAVEL_START', microtime(true));
 
-// Instanciando Router para el manejo de rutas
-$router = new Router();
+/*
+|--------------------------------------------------------------------------
+| Check If The Application Is Under Maintenance
+|--------------------------------------------------------------------------
+|
+| If the application is in maintenance / demo mode via the "down" command
+| we will load this file so that any pre-rendered content can be shown
+| instead of starting the framework, which could cause an exception.
+|
+*/
 
-// HomePage - Función que asigna URL, Controllador y su Función
-$router->get('/', [HomeController::class, 'index']);
+if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php')) {
+    require $maintenance;
+}
 
-// Login
-$router->get('/login', [LoginController::class, 'index']);
-$router->post('/login', [LoginController::class, 'store']);
-$router->post('/logout', [AuthController::class, 'logout']);
+/*
+|--------------------------------------------------------------------------
+| Register The Auto Loader
+|--------------------------------------------------------------------------
+|
+| Composer provides a convenient, automatically generated class loader for
+| this application. We just need to utilize it! We'll simply require it
+| into the script here so we don't need to manually load our classes.
+|
+*/
 
-// Crear Cuenta
-$router->get('/registro', [AuthController::class, 'registro']);
-$router->post('/registro', [AuthController::class, 'registro']);
+require __DIR__.'/../vendor/autoload.php';
 
-// Formulario de olvide mi password
-$router->get('/olvide', [AuthController::class, 'olvide']);
-$router->post('/olvide', [AuthController::class, 'olvide']);
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request using
+| the application's HTTP kernel. Then, we will send the response back
+| to this client's browser, allowing them to enjoy our application.
+|
+*/
 
-// Colocar el nuevo password
-$router->get('/reestablecer', [AuthController::class, 'reestablecer']);
-$router->post('/reestablecer', [AuthController::class, 'reestablecer']);
+$app = require_once __DIR__.'/../bootstrap/app.php';
 
-// Confirmación de Cuenta
-$router->get('/mensaje', [AuthController::class, 'mensaje']);
-$router->get('/confirmar-cuenta', [AuthController::class, 'confirmar']);
+$kernel = $app->make(Kernel::class);
 
+$response = $kernel->handle(
+    $request = Request::capture()
+)->send();
 
-$router->comprobarRutas();
+$kernel->terminate($request, $response);

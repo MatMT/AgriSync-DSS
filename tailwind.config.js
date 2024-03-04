@@ -1,14 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./public/index.php",
-    "./views/**/*.php",
-    "./src/css/*.css"
-  ],
+export default {
+  content: [],
   theme: {
-    fontFamily: {
-      sans: ['"Inter", sans-serif']
-    }
+    extend: {},
   },
   plugins: [],
 }
