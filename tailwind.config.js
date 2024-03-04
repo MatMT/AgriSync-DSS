@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     "./public/index.php",
-    "./views/**/*.php"
+    "./views/**/*.php",
+    "./src/css/*.css"
   ],
   theme: {
     fontFamily: {
