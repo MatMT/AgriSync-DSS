@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>AgrySinc - @yield('titulo')</title>
 
     <!-- Fonts -->
 
@@ -14,9 +14,12 @@
 </head>
 
 <body>
-    <h1 class="text-3xl font-bold underline">
+    <h1 class="text-3xl font-bold">
         Hello world!
     </h1>
+
+
+    @yield('contenido')
 </body>
 
 </html>
