@@ -6,5 +6,5 @@
 @endsection
 
 @section('contenido')
-    <p class="font-bold">Este es un parrafo</p>
+    <p class="font-bold text-2xl">Este es un parrafo</p>
 @endsection
