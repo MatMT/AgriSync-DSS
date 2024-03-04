@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\LoginController;
 use MVC\Router;
 // Clases importadas
 use Controllers\AuthController;
@@ -14,8 +15,8 @@ $router = new Router();
 $router->get('/', [HomeController::class, 'index']);
 
 // Login
-$router->get('/login', [AuthController::class, 'login']);
-$router->post('/login', [AuthController::class, 'login']);
+$router->get('/login', [LoginController::class, 'index']);
+$router->post('/login', [LoginController::class, 'store']);
 $router->post('/logout', [AuthController::class, 'logout']);
 
 // Crear Cuenta
