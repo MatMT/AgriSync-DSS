@@ -5,7 +5,7 @@ namespace Model;
 class Usuario extends ActiveRecord
 {
     protected static $tabla = 'usuarios';
-    protected static $columnasDB = ['id', 'nombre', 'apellido', 'email', 'password', 'confirmado', 'token', 'admin'];
+    protected static $columnasDB = ['id', 'nombre', 'apellido', 'email', 'password', 'confirmado', 'token'];
 
     public $id;
     public $nombre;
@@ -15,7 +15,6 @@ class Usuario extends ActiveRecord
     public $password2;
     public $confirmado;
     public $token;
-    public $admin;
 
     // Atributos a utilizar solamente en el controlador
     public $password_actual;
@@ -32,14 +31,13 @@ class Usuario extends ActiveRecord
         $this->password2 = $args['password2'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
         $this->token = $args['token'] ?? '';
-        $this->admin = $args['admin'] ?? '';
     }
 
     // Validar el Login de Usuarios
     public function validarLogin()
     {
         if (!$this->email) {
-            self::$alertas['error'][] = 'El Email del Usuario es Obligatorio';
+            self::$alertas['error'][] = 'El Email es Obligatorio';
         }
         if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             self::$alertas['error'][] = 'Email no válido';
