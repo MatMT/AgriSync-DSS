@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 flex flex-col min-h-screen">
     <?php
     include_once __DIR__ . '/templates/header.php';
 

@@ -595,6 +595,10 @@ video {
   margin-top: 6rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .flex {
   display: flex;
 }
@@ -622,6 +626,10 @@ video {
 
 .min-h-\[20rem\] {
   min-height: 20rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
 }
 
 .w-1\/4 {
@@ -825,6 +833,22 @@ video {
 
 .pb-6 {
   padding-bottom: 1.5rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pt-12 {
+  padding-top: 3rem;
+}
+
+.pt-16 {
+  padding-top: 4rem;
+}
+
+.pt-24 {
+  padding-top: 6rem;
 }
 
 .text-center {
