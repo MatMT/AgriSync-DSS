@@ -1,18 +1,3 @@
-/* Colores */
-:root {
-    --azul: #007df4;
-    --secundario: #00c8c2;
-
-    --negro: #1a1b15;
-    --blanco: #ffffff;
-    --gris: #64748b;
-    --gris-claro: #f8fafc;
-    --gris-oscuro: #1e293be0;
-
-    --rojo: rgb(169, 0, 0);
-    --verde: #02db02;
-}
-
 /* Contenedores */
 .contenedor {
     width: min(95%, 140rem);
@@ -58,7 +43,10 @@ h3 {
 p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: var(--gris-oscuro);
+}
+
+* {
+    font-family: "Inter", sans-serif !important;
 }
 
 /* Links */
@@ -69,11 +57,10 @@ p {
     font-weight: bold;
     background-color: transparent;
     border: none;
+}
 
-    :hover {
-        color: var(--azul);
-        cursor: pointer;
-    }
+.enlace:hover {
+    cursor: pointer;
 }
 
 .desc_pag {
