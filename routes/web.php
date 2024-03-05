@@ -31,4 +31,3 @@ Route::prefix('register')->name('register.')->group(function () {
     Route::post('/', [RegisterController::class, 'store'])->name('store');
 })->name('login');
 
-// Gerente General ===================================================================
