@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -11,10 +12,9 @@ class LoginController extends Controller
         return view('auth.login', []);
     }
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        $name = $request->name;
+        $data = $request->validated();
 
-        dump($name);
     }
 }

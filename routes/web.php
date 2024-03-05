@@ -19,12 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('login')->group(function () {
-    Route::get('/', [LoginController::class, 'index']);
-    Route::post('/', [LoginController::class, 'store']);
+// Autenticación ===================================================================
+
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('/', [LoginController::class, 'index'])->name('index');
+    Route::post('/', [LoginController::class, 'store'])->name('store');
 });
 
-Route::prefix('register')->group(function () {
-    Route::get('/', [RegisterController::class, 'index']);
-    Route::post('/', [RegisterController::class, 'store']);
-});
+Route::prefix('register')->name('register.')->group(function () {
+    Route::get('/', [RegisterController::class, 'index'])->name('index');
+    Route::post('/', [RegisterController::class, 'store'])->name('store');
+})->name('login');
+
+// Gerente General ===================================================================

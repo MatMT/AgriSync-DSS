@@ -12,9 +12,12 @@
         <div class="w-full pt-10">
             <p class="desc_pag">Registrate</p>
 
-            <form action="" method="POST" class="w-1/4 min-w-80 mx-auto auto flex flex-col items-center" novalidate>
+            <form action="{{ route('register.store') }}" method="POST"
+                class="w-1/4 min-w-80 mx-auto auto flex flex-col items-center" novalidate>
                 {{-- Token de autenticación --}}
                 @csrf
+
+                @include('components.alertsError')
 
                 @include('auth.formRegister')
 
@@ -24,7 +27,7 @@
                 </button>
 
                 <div class="acciones">
-                    <a href="/login"
+                    <a href="{{ route('login.index') }}"
                         class="acciones__enlace text-sm  border-b-2 border-slate-600 hover:border-amber-600 hover:text-amber-600">Inicia
                         Sesión</a>
 
