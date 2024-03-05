@@ -17,12 +17,13 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100 flex flex-col min-h-screen ">
-    <h1 class="text-3xl font-bold">
-        @yield('titulo')
-    </h1>
+<body class="bg-gray-100 flex flex-col min-h-screen">
 
-    @yield('contenido')
+    <div class="contenedor flex flex-col items-center ">
+        @yield('contenido')
+    </div>
+
+    @include('layouts.footer')
 </body>
 
 </html>

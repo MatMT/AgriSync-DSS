@@ -3,7 +3,7 @@
     <div class="relative w-full">
         <input type="text"
             class="w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Tu nombre" name="nombre" value="<?php echo $usuario->nombre ?? ''; ?>">
+            placeholder="Tu nombre" name="nombre">
     </div>
 </div>
 <!--  -->
@@ -12,7 +12,7 @@
     <div class="relative w-full">
         <input type="text"
             class="w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Tu apellido" name="apellido" value="<?php echo $usuario->apellido ?? ''; ?>">
+            placeholder="Tu apellido" name="apellido">
     </div>
 </div>
 <!--  -->
@@ -21,7 +21,7 @@
     <div class="relative w-full">
         <input type="email"
             class="w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Tu correo electrónico" name="email" value="<?php echo $usuario->email ?? ''; ?>">
+            placeholder="Tu correo electrónico" name="email">
     </div>
 </div>
 <!--  -->
