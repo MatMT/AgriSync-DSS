@@ -7,8 +7,10 @@ AgriSync es un proyecto universitario desarrollado para el Banco de Agricultura 
 ## Integrantes
 
 -   Oscar Mateo Elías López 🧑‍💻
--   Victor Rafael Cornejo Garcia 👳🏻‍♂️
+-   Victor Rafael Cornejo Garcia 🏋🏻‍♂️
 -   Oscar Emmanuel Arce Pineda 🦝
+-   Norman Rafael Espinoza Anzora 👨🏻‍🌾
+-   Luis Ernesto Marquez Rivas 👸🏻
 
 ## Materia
 
