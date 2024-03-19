@@ -9,12 +9,8 @@ AgriSync es un proyecto universitario desarrollado para el Banco de Agricultura 
 -   Oscar Mateo Elías López 🧑‍💻
 -   Victor Rafael Cornejo Garcia 🏋🏻‍♂️
 -   Oscar Emmanuel Arce Pineda 🦝
-<<<<<<< HEAD
 -   Norman Rafael Espinoza Anzora 🐘
-=======
--   Norman Rafael Espinoza Anzora 👨🏻‍🌾
 -   Luis Ernesto Marquez Rivas 👸🏻
->>>>>>> d79b56e8dc38856d2bbe587d073b3af2528d9123
 
 ## Materia
 
