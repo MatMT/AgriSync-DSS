@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ClientLoginController;
+use App\Http\Controllers\ClientRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,12 @@ Route::get('/', function () {
 // Autenticación ===================================================================
 
 Route::prefix('login')->name('login.')->group(function () {
-    Route::get('/', [LoginController::class, 'index'])->name('index');
-    Route::post('/', [LoginController::class, 'store'])->name('store');
+    Route::get('/', [ClientLoginController::class, 'index'])->name('index');
+    Route::post('/', [ClientLoginController::class, 'store'])->name('store');
 });
 
 Route::prefix('register')->name('register.')->group(function () {
-    Route::get('/', [RegisterController::class, 'index'])->name('index');
-    Route::post('/', [RegisterController::class, 'store'])->name('store');
+    Route::get('/', [ClientRegisterController::class, 'index'])->name('index');
+    Route::post('/', [ClientRegisterController::class, 'store'])->name('store');
 })->name('login');
 

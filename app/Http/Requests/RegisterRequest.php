@@ -25,7 +25,7 @@ class RegisterRequest extends FormRequest
         return [
             'nombres' => ['required', 'string', 'regex:/^[\pL\s]+$/u'],
             'apellidos' => ['required', 'string', 'regex:/^[\pL\s]+$/u'],
-            'email' => ['required', 'email', 'unique:users,email'],
+            'email' => ['required', 'email', 'unique:clients,email'],
             'password' => [
                 'required',
                 'confirmed',

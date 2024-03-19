@@ -39,6 +39,6 @@
     <div class="relative w-full">
         <input type="password"
             class="w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Confirma tu password" name="password">
+            placeholder="Confirma tu password" name="password_confirmation">
     </div>
 </div>

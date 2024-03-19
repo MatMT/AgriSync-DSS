@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 
-class LoginController extends Controller
+class ClientLoginController extends Controller
 {
     public function index()
     {
-        return view('auth.login', []);
+        return view('auth.client.login', []);
     }
 
     public function store(LoginRequest $request)
