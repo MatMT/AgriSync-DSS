@@ -17,9 +17,8 @@ class ClientRegisterController extends Controller
     public function store(RegisterRequest $request)
     {
         $dato = new ModelsClient();
-        dd($dato);
-        $dato->nombre = $request->nombre;
-        $dato->apellidos = $request->apellidos; // Corregido aquí
+        $dato->names = $request->nombres;
+        $dato->last_names = $request->apellidos; // Corregido aquí
         $dato->email = $request->email;
         $dato->password = $request->password;
 

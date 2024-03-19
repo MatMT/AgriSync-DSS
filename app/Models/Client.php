@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Client extends Model
 {
@@ -11,7 +12,7 @@ class Client extends Model
     protected $table = 'clients';
 
     protected $fillable = [
-        'name',
+        'names',
         'last_name', 
         'email',
         'password',
@@ -21,4 +22,9 @@ class Client extends Model
         'password',
         'remember_token',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
 }
