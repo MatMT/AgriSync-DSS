@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ClientLoginController;
-use App\Http\Controllers\ClientRegisterController;
+use App\Http\Controllers\Client\LoginController as ClientLoginController;
+use App\Http\Controllers\Client\RegisterController as ClientRegisterController;
+
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\LoginController as AdminLoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Autenticación ===================================================================
+// Autenticación =================================
 
 Route::prefix('login')->name('login.')->group(function () {
     Route::get('/', [ClientLoginController::class, 'index'])->name('index');
@@ -30,5 +33,20 @@ Route::prefix('login')->name('login.')->group(function () {
 Route::prefix('register')->name('register.')->group(function () {
     Route::get('/', [ClientRegisterController::class, 'index'])->name('index');
     Route::post('/', [ClientRegisterController::class, 'store'])->name('store');
-})->name('login');
+});
 
+
+// Rutas Administrativas ===================================================================
+
+Route::prefix('/admin')->name('admin.')->group(function () {
+
+    // Autenticación =================================
+    Route::prefix('/login')->name('login.')->group(function () {
+        Route::get('/', [AdminLoginController::class, 'index'])->name('index');
+        Route::post('/', [AdminLoginController::class, 'store'])->name('store');
+    });
+
+    // Gerente General =================================
+
+
+});

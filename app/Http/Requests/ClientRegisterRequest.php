@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password as PasswordRules;
 
-class RegisterRequest extends FormRequest
+class ClientRegisterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

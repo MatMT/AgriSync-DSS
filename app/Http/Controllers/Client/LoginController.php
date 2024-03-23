@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
+
+use App\Http\Controllers\Controller; // <== Importación de la Clase Controller
 
 use Illuminate\Http\Request;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\ClientLoginRequest as LoginRequest;
 
-class ClientLoginController extends Controller
+
+class LoginController extends Controller
 {
     public function index()
     {
@@ -15,6 +18,5 @@ class ClientLoginController extends Controller
     public function store(LoginRequest $request)
     {
         $data = $request->validated();
-
     }
 }

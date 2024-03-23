@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
+
+use App\Http\Controllers\Controller; // <== Importación de la Clase Controller
 
 use Illuminate\Http\Request;
-use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\ClientRegisterRequest as RegisterRequest;
 
 use App\Models\Client as ModelsClient;
 
-class ClientRegisterController extends Controller
+class RegisterController extends Controller
 {
     public function index()
     {
