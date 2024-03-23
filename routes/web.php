@@ -38,15 +38,18 @@ Route::prefix('register')->name('register.')->group(function () {
 
 // Rutas Administrativas ===================================================================
 
+// Autenticación =================================
+Route::prefix('/admin/login')->name('admin.login.')->group(function () {
+    Route::get('/', [AdminLoginController::class, 'index'])->name('index');
+    Route::post('/', [AdminLoginController::class, 'store'])->name('store');
+});
+
 Route::prefix('/admin')->name('admin.')->group(function () {
 
-    // Autenticación =================================
-    Route::prefix('/login')->name('login.')->group(function () {
-        Route::get('/', [AdminLoginController::class, 'index'])->name('index');
-        Route::post('/', [AdminLoginController::class, 'store'])->name('store');
-    });
-
     // Gerente General =================================
+    Route::prefix('/gg')->name('gg.')->group(function () {
+        Route::get('/', [AdminController::class, 'home'])->name('home');
+    });
 
 
 });

@@ -6,14 +6,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class Client extends Model
 {
     use HasFactory;
+    // Asignación de Roles
+    use HasRoles;
+
     protected $table = 'clients';
 
     protected $fillable = [
         'names',
-        'last_name', 
+        'last_name',
         'email',
         'password',
     ];
@@ -27,4 +32,6 @@ class Client extends Model
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    protected string $guard_name = 'web';
 }

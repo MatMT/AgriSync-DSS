@@ -6,5 +6,5 @@
 @endsection
 
 @section('contenido')
-    <p>Home</p>
+    <p>Eres un General Manager</p>
 @endsection

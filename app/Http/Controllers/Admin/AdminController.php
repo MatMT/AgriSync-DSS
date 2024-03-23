@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-        dd('Hola');
-        return view('welcome', []);
+        $this->middleware(['role:gerenteGeneral']);
+    }
+
+    public function home()
+    {
+        return view('generalManager.welcome', []);
     }
 
 }

@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
 
             // Relación | Pertenece a cliente
-            $table->foreignId('client_id')->nullable()->constrained('clients')->nullOnDelete();
+            $table->foreignId('client_id')->nullable()->constrained('users')->nullOnDelete();
             $table->decimal('balance', 10, 2, true);
             $table->enum('status', ['activa', 'suspendida']);
             $table->dateTime('open_date');

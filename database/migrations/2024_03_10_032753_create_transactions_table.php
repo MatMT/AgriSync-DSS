@@ -19,7 +19,7 @@ return new class extends Migration {
             // Llaves foraneas ==========================
 
             $table->foreignId('admin_id')->nullable()
-                ->constrained('admins')
+                ->constrained('users')
                 ->nullOnDelete();
 
             $table->foreignId('recipient_account_id')->nullable()

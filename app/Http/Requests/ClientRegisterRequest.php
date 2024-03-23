@@ -25,7 +25,7 @@ class ClientRegisterRequest extends FormRequest
         return [
             'nombres' => ['required', 'string', 'regex:/^[\pL\s]+$/u'],
             'apellidos' => ['required', 'string', 'regex:/^[\pL\s]+$/u'],
-            'email' => ['required', 'email', 'unique:clients,email'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'password' => [
                 'required',
                 'confirmed',
