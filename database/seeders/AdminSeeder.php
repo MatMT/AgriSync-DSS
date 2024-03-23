@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         User::create([
             'names' => 'Oscar Mateo',
             'last_names' => 'Elías López',
-            'email' => 'oscar@email.com',
+            'email' => 'oscar@agrisync.com',
             'password' => Hash::make('con123'),
             'gender' => 'M',
             'email_verified_at' => now(),
