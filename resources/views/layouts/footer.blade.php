@@ -12,6 +12,4 @@
                 <span>DSS404</span>
             </a>
         </div>
-        <h1 class="text-2xl">AgrySinc</h1>
-    </div>
-</footer>
+    </footer>
