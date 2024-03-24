@@ -1,4 +1,4 @@
-<header class="flex w-full items-start justify-center bg-cover bg-center bg-no-repeat pb-8">
+<header class="flex w-full items-start justify-center bg-cover bg-center bg-no-repeat">
     <div
         class="m-auto flex grow flex-col md:items-start items-center justify-start gap-6 px-4 pt-12 md:gap-10 md:px-12 md:pt-18 lg:max-w-8xl">
 

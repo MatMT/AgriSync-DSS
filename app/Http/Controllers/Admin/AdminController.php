@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branch;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // <== Importación de la Clase Controller
@@ -19,6 +20,8 @@ class AdminController extends Controller
         if ($user->id !== auth()->id()) {
             return redirect()->route('admin.login.index');
         }
+
+        $brances = Branch::all();
 
         return view('generalManager.welcome', [
             'admin' => $user

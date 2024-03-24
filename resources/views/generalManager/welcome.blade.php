@@ -10,6 +10,8 @@
 
     <div class="bg-white w-full h-[1px] mb-8"></div>
 
+    <livewire:branches-filter />
+
     <div
         class="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-0 md:px-8 text-slate-700 overflow-x-auto max-h-[620px]">
         <div
