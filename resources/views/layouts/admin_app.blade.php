@@ -19,6 +19,8 @@
 
 <body class="bg-gray-800 flex flex-col min-h-screen text-gray-200">
 
+    @include('layouts.header')
+
     <div class="contenedor flex flex-col items-center ">
         @yield('contenido')
     </div>

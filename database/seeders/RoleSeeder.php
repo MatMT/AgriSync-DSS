@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         // Roles ===================================
-        $roleGG = Role::create(['name' => 'gerenteGeneral']);
+        $roleGG = Role::create(['name' => 'Gerente General']);
 
         // Permisos ================================
         // Administración Gerente General

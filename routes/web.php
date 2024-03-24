@@ -47,8 +47,8 @@ Route::prefix('/admin/login')->name('admin.login.')->group(function () {
 Route::prefix('/admin')->name('admin.')->group(function () {
 
     // Gerente General =================================
-    Route::prefix('/gg')->name('gg.')->group(function () {
-        Route::get('/', [AdminController::class, 'home'])->name('home');
+    Route::prefix('/gerente-general')->name('gg.')->group(function () {
+        Route::get('/{user}', [AdminController::class, 'home'])->name('home');
     });
 
 

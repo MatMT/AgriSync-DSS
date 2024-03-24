@@ -24,7 +24,7 @@ class AdminSeeder extends Seeder
             'gender' => 'M',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-        ])->assignRole(['gerenteGeneral']);
+        ])->assignRole(['Gerente General']);
 
 
         // =============================================
