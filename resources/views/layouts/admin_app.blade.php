@@ -17,11 +17,11 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body class="bg-gray-800 flex flex-col min-h-screen text-gray-200">
+<body class="bg-gray-800 flex flex-col min-h-screen text-gray-200 max-w-screen-2xl mx-auto">
 
     @include('layouts.header')
 
-    <div class="contenedor flex flex-col items-center ">
+    <div class="contenedor flex flex-col items-center px-6 ">
         @yield('contenido')
     </div>
 

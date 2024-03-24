@@ -31,6 +31,6 @@ class LoginController extends Controller
         $admin = Auth::user();
 
         // Redireccionar
-        return redirect()->route('admin.gg.home');
+        return redirect()->route('admin.gg.home', $admin);
     }
 }

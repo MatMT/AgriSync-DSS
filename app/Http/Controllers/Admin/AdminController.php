@@ -15,6 +15,11 @@ class AdminController extends Controller
 
     public function home(User $user)
     {
+        // Válidar que acceda solamente desde a perfil
+        if ($user->id !== auth()->id()) {
+            return redirect()->route('admin.login.index');
+        }
+
         return view('generalManager.welcome', [
             'admin' => $user
         ]);
