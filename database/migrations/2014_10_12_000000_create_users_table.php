@@ -21,11 +21,16 @@ return new class extends Migration {
             $table->char('DUI', 10)->default('12345678-9');
             $table->enum('gender', ['M', 'F'])->default(null);
             $table->string('profile_pic', 41)->default("default-pfp.png");
+            $table->unsignedBigInteger('state_id')->nullable()
+                ->nullOnDelete();
 
             // Validación de Correo ==========================
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            // Llaves foraneas ==========================
+            $table->foreign('state_id')->references('id')->on('statuses');
         });
     }
 

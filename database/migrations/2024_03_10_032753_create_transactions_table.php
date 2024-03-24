@@ -31,11 +31,11 @@ return new class extends Migration {
                 ->nullOnDelete();
 
             $table->foreignId('type_transaction_id')->nullable()
-                ->constrained('types_transactions')
+                ->constrained('type_transactions')
                 ->nullOnDelete();
 
             $table->foreignId('status_transaction_id')->nullable()
-                ->constrained('status_transactions')
+                ->constrained('statuses')
                 ->nullOnDelete();
 
             $table->timestamps();

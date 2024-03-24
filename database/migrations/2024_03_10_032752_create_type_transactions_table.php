@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('types_transactions', function (Blueprint $table) {
+        Schema::create('type_transactions', function (Blueprint $table) {
             $table->id();
             $table->string('type')->nullable(false);
             $table->timestamps();
@@ -22,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('types_transactions');
+        Schema::dropIfExists('type_transactions');
     }
 };

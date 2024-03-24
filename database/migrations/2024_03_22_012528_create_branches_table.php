@@ -10,20 +10,19 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('employee_mapping', function (Blueprint $table) {
+        Schema::create('branches', function (Blueprint $table) {
             $table->id();
 
-            // Llaves foraneas ==========================
+            $table->string('name', 35);
+            $table->string('region', 30)->nullable();
 
-            $table->foreignId('branch_id')->nullable()
-                ->foreignId('branches')
-                ->nullOnDelete();
-
-            $table->foreignId('employee_id')->nullable()
-                ->foreignId('users')
+            $table->unsignedBigInteger('local_manager_id')->nullable()
                 ->nullOnDelete();
 
             $table->timestamps();
+
+            // Llaves foraneas ==========================
+            $table->foreign('local_manager_id')->references('id')->on('users');
         });
     }
 
@@ -32,6 +31,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('employee_mapping');
+        Schema::dropIfExists('branches');
     }
 };
