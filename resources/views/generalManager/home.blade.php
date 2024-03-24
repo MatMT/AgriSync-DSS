@@ -1,6 +1,5 @@
 @extends('layouts.admin_app')
 
-
 @section('titulo')
     Pagina Principal
 @endsection

@@ -6,7 +6,7 @@ use App\Http\Controllers\Client\RegisterController as ClientRegisterController;
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
-
+use App\Http\Controllers\Admin\EmployeeRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,18 +38,22 @@ Route::prefix('register')->name('register.')->group(function () {
 
 // Rutas Administrativas ===================================================================
 
-// Autenticación =================================
-Route::prefix('/admin/login')->name('admin.login.')->group(function () {
-    Route::get('/', [AdminLoginController::class, 'index'])->name('index');
-    Route::post('/', [AdminLoginController::class, 'store'])->name('store');
-});
-
-Route::prefix('/admin')->name('admin.')->group(function () {
-
-    // Gerente General =================================
-    Route::prefix('/gerente-general')->name('gg.')->group(function () {
+Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
+    // Autenticación para Gerente General
+    Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
         Route::get('/{user}', [AdminController::class, 'home'])->name('home');
+        Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
     });
 
+    Route::group(['prefix' => '/solicitudes', 'as' => 'sc.'], function () {
+        Route::get('/', [EmployeeRequest::class, 'index'])->name('index');
+        // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
+    });
 
+    // Autenticación para Gerente de Sucursal
+    Route::prefix('/gerente-sucursal')->name('gs.')->group(function () {
+        // Home
+        Route::get('/{user}', [AdminController::class, 'home'])->name('home');
+    });
 });
+

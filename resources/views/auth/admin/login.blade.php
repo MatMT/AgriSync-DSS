@@ -6,7 +6,7 @@
 @endsection
 
 @section('contenido')
-    <h1>AgrySinc</h1>
+    <h1>AgriSync</h1>
     <p class="text-center">Gestionar tus necesidades nunca fue tan fácil.</p>
 
     <div class="w-full pt-10">
