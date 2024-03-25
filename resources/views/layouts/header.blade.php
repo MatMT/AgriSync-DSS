@@ -1,14 +1,31 @@
-<header class="flex w-full items-start justify-center bg-cover bg-center bg-no-repeat">
-    <div
-        class="m-auto flex grow flex-col md:items-start items-center justify-start gap-6 px-4 pt-12 md:gap-10 md:px-12 md:pt-18 lg:max-w-8xl">
+<header class="p-4 py-2 md:py-6 border-b-[2px] border-slate-300 text-slate-700">
+    <nav class="flex items-center justify-around transition-transform duration-500 transform">
+        <div class="flex items-center justify-between flex-grow px-12"> <!-- Increased space-x to 8 -->
+            <button class="bg-azul text-white px-4 py-2 rounded-xl transition transform hover:scale-105">
+                Iniciar sesión
+            </button>
 
-        <div class="flex flex-1 flex-col md:items-start items-center gap-6 md:text-left text-center">
-            <div class="flex max-w-lg flex-col gap-4">
-                <h3 class="text-4xl font-semibold text-slate-100 md:text-7xl">{{ $header }}</h3>
-                <h4 class="text-xl md:text-2xl font-normal text-slate-200">
-                    {{ $subHeader }}</h4>
+            <div class="flex gap-8">
+                <a href="#" class=" transition relative group">
+                    <span>Inicio</span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full bg-secundario h-0.5 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </a>
+                <a href="#" class=" transition relative group">
+                    <span>Cuentas</span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full bg-secundario h-0.5 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </a>
+                <a href="#" class=" transition relative group">
+                    <span>Mis movimientos</span>
+                    <span
+                        class="absolute bottom-0 left-0 w-full bg-secundario h-0.5 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                </a>
             </div>
+
+
         </div>
 
-    </div>
+    </nav>
 </header>
+<div class="bg-slate-300 mx-auto h-[2px]"></div>

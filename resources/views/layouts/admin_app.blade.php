@@ -19,7 +19,7 @@
 
 <body class="bg-gray-800 flex flex-col min-h-screen text-gray-200 max-w-screen-2xl mx-auto">
 
-    @include('layouts.header')
+    @include('layouts.admin_header')
 
     <div class="contenedor flex flex-col items-center px-6 py-8">
         @yield('contenido')

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Traits\HasRoles;
@@ -48,4 +49,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function gerenteSurcusal(): HasOne
+    {
+        return $this->hasOne(Branch::class);
+    }
 }

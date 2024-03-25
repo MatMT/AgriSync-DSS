@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Livewire\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\LoginController as ClientLoginController;
 use App\Http\Controllers\Client\RegisterController as ClientRegisterController;
@@ -19,9 +21,7 @@ use App\Http\Controllers\Admin\EmployeeRequest;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class);
 
 // Autenticación =================================
 
@@ -39,11 +39,19 @@ Route::prefix('register')->name('register.')->group(function () {
 // Rutas Administrativas ===================================================================
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
-    // Autenticación para Gerente General
-    Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
-        Route::get('/{user}', [AdminController::class, 'home'])->name('home');
-        Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
+
+    // Autenticación =================================
+    Route::prefix('/login')->name('login.')->group(function () {
+        Route::get('/', [AdminLoginController::class, 'index'])->name('index');
+        Route::post('/', [AdminLoginController::class, 'store'])->name('store');
     });
+
+
+    // Gerente General ===============================
+    Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
+        Route::get('/{user}', [HomeGerenteGeneral::class, 'render'])->name('home');
+        Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
+    })->middleware(['role:Gerente General']);
 
     Route::group(['prefix' => '/solicitudes', 'as' => 'sc.'], function () {
         Route::get('/', [EmployeeRequest::class, 'index'])->name('index');
