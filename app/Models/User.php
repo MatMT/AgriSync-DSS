@@ -49,8 +49,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function gerenteSurcusal(): HasOne
+    public function Sucursal(): HasOne
     {
-        return $this->hasOne(Branch::class);
+        return $this->hasOne(Branch::class, 'local_manager_id');
     }
 }

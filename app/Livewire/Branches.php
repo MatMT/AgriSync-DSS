@@ -21,7 +21,7 @@ class Branches extends Component
     public function render()
     {
         // Obtención de datos dinámicos
-        $branches = Branch::when($this->nombreSucursal, function ($query) {
+        $branches = Branch::with('gerente')->when($this->nombreSucursal, function ($query) {
             $query->where('name', 'LIKE', "%" . $this->nombreSucursal . "%");
         })->get();
 

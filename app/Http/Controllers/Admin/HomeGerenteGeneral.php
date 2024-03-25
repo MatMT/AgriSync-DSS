@@ -16,7 +16,7 @@ class HomeGerenteGeneral extends Controller
             return redirect()->route('admin.login.index');
         }
 
-        $requests = EmployeeRequest::all();
+        $requests = EmployeeRequest::count();
 
         return view('generalManager.home', [
             'admin' => $user,
