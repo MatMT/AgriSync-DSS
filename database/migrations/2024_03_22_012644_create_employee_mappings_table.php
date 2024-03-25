@@ -13,17 +13,14 @@ return new class extends Migration {
         Schema::create('employee_mappings', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('branch_id')->nullable()
-                ->nullOnDelete();
-
-            $table->unsignedBigInteger('employee_id')->nullable()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('branch_id')->nullable();
+            $table->unsignedBigInteger('employee_id')->nullable();
 
             $table->timestamps();
 
             // Llaves foraneas ==========================
-            $table->foreign('branch_id')->references('id')->on('branches');
-            $table->foreign('employee_id')->references('id')->on('users');
+            $table->foreign('branch_id')->references('id')->on('branches')->nullOnDelete();
+            $table->foreign('employee_id')->references('id')->on('users')->nullOnDelete();
         });
     }
 

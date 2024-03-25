@@ -16,13 +16,12 @@ return new class extends Migration {
             $table->string('name', 35);
             $table->string('region', 30)->nullable();
 
-            $table->unsignedBigInteger('local_manager_id')->nullable()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('local_manager_id')->nullable();
 
             $table->timestamps();
 
             // Llaves foraneas ==========================
-            $table->foreign('local_manager_id')->references('id')->on('users');
+            $table->foreign('local_manager_id')->references('id')->on('users')->nullOnDelete();
         });
     }
 

@@ -13,21 +13,21 @@ return new class extends Migration {
         Schema::create('employee_requests', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('status_id')->nullable()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('status_id')->nullable();
 
-            $table->unsignedBigInteger('manager_id')->nullable()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('manager_id')->nullable();
 
-            $table->unsignedBigInteger('employee_id')->nullable()
-                ->nullOnDelete();
+            $table->unsignedBigInteger('employee_id')->nullable();
 
             $table->timestamps();
 
             // Llaves foraneas ==========================
-            $table->foreign('status_id')->references('id')->on('statuses');
-            $table->foreign('manager_id')->references('id')->on('users');
-            $table->foreign('employee_id')->references('id')->on('users');
+            $table->foreign('status_id')->references('id')->on('statuses')
+                ->nullOnDelete();
+            $table->foreign('manager_id')->references('id')->on('users')
+                ->nullOnDelete();
+            $table->foreign('employee_id')->references('id')->on('users')
+                ->nullOnDelete();
         });
     }
 
