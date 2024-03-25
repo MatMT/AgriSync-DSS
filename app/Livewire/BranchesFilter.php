@@ -7,21 +7,19 @@ use Livewire\Component;
 
 class BranchesFilter extends Component
 {
-    public $nombre;
-    public $ubicacion;
 
+    // Atributos por los cuales se esta buscando
+    public $nombre;
+
+    // Emitir Función para el Componente Padre
     public function leerDatosForm()
     {
-        dd('Buscando...');
+        $this->dispatch('leerDatosForm', nombre: $this->nombre);
     }
 
     public function render()
     {
-        $branches = Branch::all();
-
-        return view('livewire.branches-filter', [
-            'sucursales' => $branches
-        ]);
+        return view('livewire.branches-filter');
     }
 }
 

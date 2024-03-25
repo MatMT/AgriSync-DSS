@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Livewire\Admin\HomeGerenteGeneral;
+use App\Http\Controllers\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Client\LoginController as ClientLoginController;
 use App\Http\Controllers\Client\RegisterController as ClientRegisterController;
@@ -49,7 +49,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 
     // Gerente General ===============================
     Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
-        Route::get('/{user}', [HomeGerenteGeneral::class, 'render'])->name('home');
+        Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
         Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
     })->middleware(['role:Gerente General']);
 

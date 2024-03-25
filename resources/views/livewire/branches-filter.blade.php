@@ -12,16 +12,16 @@
                         wire:model='nombre' />
                 </div>
 
-                {{-- <div class="mb-5 ">
+                <div class="mb-5 ">
                     <label class="block mb-1 text-md  uppercase font-bold">Ubicación</label>
                     <select class="rounded-md border-gray-300 p-2 w-full text-slate-800" wire:model='ubicacion'>
                         <option>--Seleccione--</option>
 
-                        @foreach ($sucursales as $categoria)
+                        {{-- @foreach ($sucursales as $categoria)
                             <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
-                        @endforeach
+                        @endforeach --}}
                     </select>
-                </div> --}}
+                </div>
 
             </div>
 
