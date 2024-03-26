@@ -4,18 +4,17 @@
         <div
             class="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-0 md:px-8 text-slate-700 overflow-x-hidden overflow-y-auto max-h-[620px]">
 
-            <div
-                class="min-h-[160px] md:min-h-[220px] flex-col relative px-6 flex justify-center rounded-lg border border-zinc-200 bg-slate-100 text-justify text-sm md:flex-col cursor-pointer">
-                <a href="{{ route('') }}">
-                    <div class="flex font-bold h-full text-wrap text-5xl md:text-6xl">
-                        <span
-                            class="overflow-hidden 
+            <a href="{{ route('admin.br.index') }}">
+                <div
+                    class="min-h-[160px] md:min-h-[220px] flex-col relative px-6 justify-center rounded-lg border border-zinc-200 bg-slate-100 text-justify  md:flex-col cursor-pointer flex font-bold h-full text-wrap text-5xl md:text-6xl">
+
+                    <span class="overflow-hidden 
                         text-center w-full
                         ">+
-                            Crear</span>
-                    </div>
-                </a>
-            </div>
+                        Crear</span>
+                </div>
+            </a>
+
 
             @if ($sucursales->isEmpty())
                 <div

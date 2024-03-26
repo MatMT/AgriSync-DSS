@@ -21,7 +21,7 @@
 
     @include('layouts.admin_header')
 
-    <div class="contenedor flex flex-col items-center px-6 py-8">
+    <div class="contenedor flex flex-col items-center px-3 py-8">
         @yield('contenido')
     </div>
 

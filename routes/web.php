@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BranchesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
@@ -40,28 +41,28 @@ Route::prefix('register')->name('register.')->group(function () {
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 
-    // Autenticación =================================
+    // Autenticación ================================= Acesso Libre
     Route::prefix('/login')->name('login.')->group(function () {
         Route::get('/', [AdminLoginController::class, 'index'])->name('index');
         Route::post('/', [AdminLoginController::class, 'store'])->name('store');
     });
 
-
-    // Gerente General ===============================
+    // Gerente General =============================== Acceso según Rol
     Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
         Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
         Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
     })->middleware(['role:Gerente General']);
 
-    Route::group(['prefix' => '/solicitudes', 'as' => 'sc.'], function () {
+    // Acceso según Permiso
+    Route::group(['prefix' => '/solicitudes', 'as' => 'rq.'], function () {
         Route::get('/', [EmployeeRequest::class, 'index'])->name('index');
         // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
-    });
+    })->middleware(['role:Gerente General']);
 
-    // Autenticación para Gerente de Sucursal
-    Route::prefix('/gerente-sucursal')->name('gs.')->group(function () {
-        // Home
-        Route::get('/{user}', [AdminController::class, 'home'])->name('home');
+    // Acceso según Permiso
+    Route::group(['prefix' => '/sucursales', 'as' => 'br.'], function () {
+        Route::get('/', [BranchesController::class, 'index'])->name('index');
+        // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
     });
 });
 

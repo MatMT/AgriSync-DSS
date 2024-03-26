@@ -14,7 +14,7 @@ class EmployeeRequest extends Controller
 
     public function index()
     {
-        return view('generalManager.request', [
+        return view('admin.request', [
             // Header   ====
             'header' => 'Solicitudes de Personal',
             'subHeader' => 'Todas las Sucursales'
