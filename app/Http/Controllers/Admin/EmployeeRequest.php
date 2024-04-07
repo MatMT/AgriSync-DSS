@@ -23,10 +23,10 @@ class EmployeeRequest extends Controller
 
     public function indexGS()
     {
-        return view('admin.request', [
+        return view('admin.managers', [
             // Header   ====
-            'header' => 'Solicitudes de Personal',
-            'subHeader' => 'Todas las Sucursales'
+            'header' => 'Gerentes de Sucursales',
+            'subHeader' => 'Administra la Gerencia'
         ]);
     }
 }

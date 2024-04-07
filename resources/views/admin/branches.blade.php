@@ -26,7 +26,7 @@
         {{-- Listado de Gerentes Disponibles --}}
         <div class="w-full lg:w-1/3">
             <h5 class="font-semibold text-3xl pb-6 overflow-y-auto">Asigna un Gerente de Sucursal</h5>
-            {{-- @include('admin.managersForm') --}}
+            @include('admin.managersList')
 
 
             <button type="submit"

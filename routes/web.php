@@ -51,6 +51,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
         Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
         Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
+
         Route::get('/personal/gerencia', [EmployeeRequest::class, 'indexGS'])->name('indexGS');
     })->middleware(['role:Gerente General']);
 
