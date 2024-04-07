@@ -20,4 +20,13 @@ class EmployeeRequest extends Controller
             'subHeader' => 'Todas las Sucursales'
         ]);
     }
+
+    public function indexGS()
+    {
+        return view('admin.request', [
+            // Header   ====
+            'header' => 'Solicitudes de Personal',
+            'subHeader' => 'Todas las Sucursales'
+        ]);
+    }
 }

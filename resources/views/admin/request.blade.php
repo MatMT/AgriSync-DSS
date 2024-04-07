@@ -5,5 +5,7 @@
 @endsection
 
 @section('contenido')
+    @include('components.alertsError')
+
     <p>Aquí Van las Solicitudes</p>
 @endsection

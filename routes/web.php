@@ -51,18 +51,21 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
         Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
         Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
+        Route::get('/personal/gerencia', [EmployeeRequest::class, 'indexGS'])->name('indexGS');
     })->middleware(['role:Gerente General']);
 
-    // Acceso según Permiso
+    // Gerente Sucursal ============================== Acceso según Rol
+
+    // =============================================== Acceso según Permiso
     Route::group(['prefix' => '/solicitudes', 'as' => 'rq.'], function () {
         Route::get('/', [EmployeeRequest::class, 'index'])->name('index');
         // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
     })->middleware(['role:Gerente General']);
 
-    // Acceso según Permiso
+    // =============================================== Acceso según Permiso
     Route::group(['prefix' => '/sucursales', 'as' => 'br.'], function () {
         Route::get('/', [BranchesController::class, 'index'])->name('index');
-        // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
+        Route::post('/', [BranchesController::class, 'store'])->name('store');
     });
 });
 
