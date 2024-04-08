@@ -29,6 +29,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('con123'),
             'gender' => 'M',
             'email_verified_at' => now(),
+            'DUI' => '12345678-9',
             'remember_token' => Str::random(10),
             'state_id' => $stateActive->id
         ])->assignRole(['Gerente General']);
@@ -39,6 +40,7 @@ class AdminSeeder extends Seeder
             'email' => 'oscar@agrisync.com',
             'password' => Hash::make('con123'),
             'gender' => 'M',
+            'DUI' => '12345678-8',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'state_id' => $stateActive->id
@@ -51,6 +53,7 @@ class AdminSeeder extends Seeder
             'email' => 'luis@agrisync.com',
             'password' => Hash::make('con123'),
             'gender' => 'M',
+            'DUI' => '12345678-7',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'state_id' => $statePending->id

@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('password');
 
             // Información extra =============================
-            $table->char('DUI', 10)->default('12345678-9');
+            $table->char('DUI', 10)->unique()->nullable();
             $table->enum('gender', ['M', 'F'])->default(null);
             $table->string('profile_pic', 41)->default("default-pfp.png");
             $table->unsignedBigInteger('state_id')->nullable()

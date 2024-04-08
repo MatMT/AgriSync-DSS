@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BranchesController;
+use App\Http\Controllers\admin\CrudManager;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,9 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
         Route::post('/{user}', [AdminController::class, 'home'])->name('logout');
 
         Route::get('/personal/gerencia', [EmployeeRequest::class, 'indexGS'])->name('indexGS');
+
+        Route::get('/personal/gerencia/nuevo', [CrudManager::class, 'index'])->name('indexNewGS');
+        Route::post('/personal/gerencia/nuevo', [CrudManager::class, 'store'])->name('storeGS');
     })->middleware(['role:Gerente General']);
 
     // Gerente Sucursal ============================== Acceso según Rol

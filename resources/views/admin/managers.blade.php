@@ -11,13 +11,11 @@
 
     <h2 class="text-3xl md:text-5xl text-center font-bold my-5">Gerentes Sin Asignar Sucursal</h2>
 
-    @include('components.personalTable')
+    <livewire:managers-pending />
 
     <div class="bg-white w-full h-[1px] mb-8"></div>
 
     <h2 class="text-3xl md:text-5xl text-center font-bold my-5">Gerentes en Función</h2>
 
-    @include('components.personalTable')
-
-    <div class="bg-white w-full h-[1px] mb-8"></div>
+    <livewire:managers />
 @endsection
