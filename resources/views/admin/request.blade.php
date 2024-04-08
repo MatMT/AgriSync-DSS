@@ -5,7 +5,11 @@
 @endsection
 
 @section('contenido')
-    @include('components.alertsError')
+    <div class="bg-white w-full h-[1px] mb-8"></div>
 
-    <p>Aquí Van las Solicitudes</p>
+    {{-- @include('components.alertsError') --}}
+
+    <h2 class="text-3xl md:text-5xl text-center font-bold my-5">Acepta o Niega nuevo Personal</h2>
+
+    <livewire:employee-requests />
 @endsection

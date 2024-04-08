@@ -51,8 +51,22 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+
+    // Un usuario (Gerente) tiene una Sucursal
     public function Sucursal(): HasOne
     {
         return $this->hasOne(Branch::class, 'local_manager_id');
+    }
+
+    // Un usuario (Gerente) solicitda uno o varios usuarios (Empleados)
+    public function gerentes(): HasOne
+    {
+        return $this->belongsToMany(EmployeeRequest::class, 'manager_id', 'id');
+    }
+
+    // Un usuario (Empleado) es solicitado por un Gerente
+    public function empleados(): HasOne
+    {
+        return $this->belongsToMany(EmployeeRequest::class, 'employee_id');
     }
 }
