@@ -8,16 +8,17 @@
 </div>
 <!--  -->
 <div class="inline-flex w-full  flex-col items-start stroke-black gap-3 py-3">
-    <label class="font-medium">Dirección</label>
+    <label class="font-medium">Región</label>
     <div class="relative w-full">
         <input type="text"
             class="text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Ubicación de la sucursal" name="adress" value="{{ old('adress') }}">
+            placeholder="Ubicación de la sucursal" name="region" value="{{ old('region') }}">
     </div>
 </div>
 <!--  -->
 <div class="inline-flex w-full  flex-col items-start stroke-black gap-3 py-3">
     <label class="font-medium">Imagen</label>
+
     <div class="relative w-full">
         <label for="image" id="div-file"
             class="text-gray-600 flex-col px-5 py-12 my-5 cursor-pointer flex justify-center items-center rounded-lg border-dashed border-2 !bg-[#e6e6e6] border-[#4c4c4c]">
@@ -35,6 +36,7 @@
                     class="text-ellipsis text-center hidden overflow-hidden font-semibold whitespace-nowrap w-full">
                 </h3>
             </div>
+
             <input type="file" name="img_wall" accept="image/*" id="image">
         </label>
     </div>

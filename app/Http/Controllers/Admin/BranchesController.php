@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\BranchRequest;
-use App\Models\Branch;
 use App\Models\User;
+use App\Models\Branch;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Http\Requests\Admin\BranchRequest;
 
 class BranchesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:Gerente General']);
+    }
+
     public function index()
     {
         $managersDisp = User::role('Gerente Sucursal')
@@ -36,20 +42,13 @@ class BranchesController extends Controller
     {
         $data = $request->validated();
 
-        $gerenteSucursal = $data['manager'];
-        $gerenteSucursal = User::findOrFail($gerenteSucursal, "id");
-
-        if (!$gerenteSucursal) {
-            return back()->with('error', 'Manager no encontrado');
-        }
-
         Branch::create([
-            $data['name'] => '',
-            $data['adress'] => '',
-            $data['manager'] => '',
-            $data['img'] => '',
+            'name' => $data['name'],
+            'region' => $data['region'],
+            'local_manager_id' => $data['manager'],
+            // 'img ' => $data['img'],
         ]);
 
-        return;
+        return redirect()->route('admin.gg.home', Auth::user()->id);
     }
 }

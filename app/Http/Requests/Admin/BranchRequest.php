@@ -23,9 +23,9 @@ class BranchRequest extends FormRequest
     {
         return [
             'name' => ['required', "regex:/^[a-zA-Z]+$/u", "min:3"],
-            'adress' => ['required', "min:10"],
-            'manager' => ['required', "exist:users,id"],
-            'img' => 'image'
+            'region' => ['required', "min:5"],
+            'manager' => ['required'],
+            'img_wall' => 'image'
         ];
     }
 

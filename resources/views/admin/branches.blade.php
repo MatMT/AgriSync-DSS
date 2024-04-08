@@ -10,7 +10,7 @@
         @include('components.alertsError')
     </div>
 
-    <form action="{{ route('admin.br.store') }}" method="POST" novalidate
+    <form action="{{ route('admin.br.store') }}" method="POST" enctype="multipart/form-data" novalidate
         class="flex-nowrap md:flex-wrap flex flex-col md:flex-row gap-12 justify-center items-center lg:items-start h-full">
 
         {{-- Token de autenticación --}}
@@ -28,14 +28,11 @@
             <h5 class="font-semibold text-3xl pb-6 overflow-y-auto">Asigna un Gerente de Sucursal</h5>
             @include('admin.managersList')
 
-
             <button type="submit"
                 class="w-full mx-auto inline-flex items-center justify-center rounded-lg align-middle font-semibold transition-all duration-300 ease-in-out  border border-amber-600 bg-transparent stroke-amber-600 text-amber-600 h-[50px] min-w-[56px] hover:bg-amber-600 hover:text-white text-2xl grow md:mt-0 mt-12">
                 <span>Registrar Nueva Sucursal</span>
             </button>
         </div>
-
-
 
     </form>
 @endsection
