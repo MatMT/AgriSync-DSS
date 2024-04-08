@@ -30,7 +30,7 @@
 
 
             <button type="submit"
-                class="w-full mx-auto inline-flex items-center justify-center rounded-lg align-middle font-semibold transition-all duration-300 ease-in-out disabled:cursor-not-allowed border border-amber-600 bg-transparent stroke-amber-600 text-amber-600 h-[50px] min-w-[56px] hover:bg-amber-600 hover:text-white text-2xl grow md:mt-0 mt-12">
+                class="w-full mx-auto inline-flex items-center justify-center rounded-lg align-middle font-semibold transition-all duration-300 ease-in-out  border border-amber-600 bg-transparent stroke-amber-600 text-amber-600 h-[50px] min-w-[56px] hover:bg-amber-600 hover:text-white text-2xl grow md:mt-0 mt-12">
                 <span>Registrar Nueva Sucursal</span>
             </button>
         </div>
