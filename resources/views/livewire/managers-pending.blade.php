@@ -1,4 +1,4 @@
-<div class=" w-full ">
+<div class="w-full ">
     <livewire:users-filter>
 
         <div class="relative overflow-x-auto shadow-md  pb-8 text-gray-100  w-full md:px-8 px-0 ">
