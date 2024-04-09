@@ -1,7 +1,7 @@
 <div class=" w-full ">
     <livewire:users-filter>
 
-        <div class="relative overflow-x-auto shadow-md  pb-8 text-gray-100  w-full md:px-8 px-0 ">
+        <div class="relative overflow-x-auto   pb-8 text-gray-100  w-full md:px-8 px-0 ">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-300 ">
                     <tr>

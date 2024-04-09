@@ -27,14 +27,14 @@
                         class="px-6 py-4 font-bold uppercase whitespace-nowrap 
                     {{ $solicitud->status->state == 'Pendiente'
                         ? 'text-yellow-500'
-                        : ($solicitud->status->state == 'Aprobado'
-                            ? 'text-green-500'
+                        : ($solicitud->status->state == 'Finalizado'
+                            ? 'text-gray-500'
                             : 'text-red-500') }}
                     ">
                         {{ $solicitud->status->state }}
                     </th>
                     <td class="px-6 py-4">
-                        {{ $solicitud->employee->names }}
+                        {{ $solicitud->employee->names . ' ' . $solicitud->employee->last_names }}
                     </td>
                     </td>
                     <td class="px-6 py-4">
@@ -44,19 +44,30 @@
                         {{ $solicitud->created_at->format('d/m/Y') }}
                     </td>
                     <td class="px-6 py-4 flex gap-4 justify-center">
-                        <form action="">
+                        {{-- Formulario para aceptar o rechazar --}}
+                        <form action="{{ route('admin.rq.store') }}" method="POST">
+                            @csrf
                             <input type="hidden" name="solicitud_id" value="{{ $solicitud->id }}">
-                            <input type="submit" value="Aceptar"
+                            <input type="hidden" name="employee_id" value="{{ $solicitud->employee->id }}">
+
+                            <button type="submit" name="action" value="aceptar"
                                 class="bg-emerald-600 text-white px-4 py-2 rounded-md cursor-pointer">
-                        </form>
-                        <form action="">
-                            <input type="hidden" name="solicitud_id" value="{{ $solicitud->id }}">
-                            <input type="submit" value="Suspender"
+                                Aceptar
+                            </button>
+
+                            <button type="submit" name="action" value="rechazar"
                                 class="bg-red-600 text-white px-4 py-2 rounded-md cursor-pointer">
+                                Rechazar
+                            </button>
                         </form>
                     </td>
                 </tr>
             @empty
+                <tr class="bg-white border-b text-gray-900">
+                    <td class="px-6 py-4 text-center uppercase font-semibold text-gray-700" colspan="6">
+                        No hay más solicitudes por gestionar :(
+                    </td>
+                </tr>
             @endforelse
         </tbody>
     </table>

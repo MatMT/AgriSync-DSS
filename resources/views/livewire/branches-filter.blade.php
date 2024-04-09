@@ -9,7 +9,7 @@
                     <label class="block mb-1 text-md uppercase font-bold " for="nombre">Nombre
                     </label>
                     <input id="nombre" type="text" placeholder="Buscar por Término: ej. San Salvador"
-                        class="rounded-md p-2 shadow-md border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full text-slate-800"
+                        class="rounded-md p-2  border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 w-full text-slate-800"
                         wire:model='nombre' />
                 </div>
 
