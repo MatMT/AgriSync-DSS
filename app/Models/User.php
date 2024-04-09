@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
@@ -58,15 +59,13 @@ class User extends Authenticatable
         return $this->hasOne(Branch::class, 'local_manager_id');
     }
 
-    // Un usuario (Gerente) solicitda uno o varios usuarios (Empleados)
-    public function gerentes(): HasOne
+    public function managedRequests()
     {
-        return $this->belongsToMany(EmployeeRequest::class, 'manager_id', 'id');
+        return $this->hasMany(EmployeeRequest::class, 'manager_id');
     }
 
-    // Un usuario (Empleado) es solicitado por un Gerente
-    public function empleados(): HasOne
+    public function requestedEmployees()
     {
-        return $this->belongsToMany(EmployeeRequest::class, 'employee_id');
+        return $this->hasMany(EmployeeRequest::class, 'employee_id');
     }
 }

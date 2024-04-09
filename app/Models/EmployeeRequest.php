@@ -4,21 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class EmployeeRequest extends Model
 {
     use HasFactory;
 
-    protected $filable = [];
+    protected $fillable = [];
 
-    public function employees()
+    public function status()
     {
-        return $this->belongsToMany(User::class, 'employee_requests', 'employee_id', 'id');
+        return $this->belongsTo(Status::class);
     }
 
-    public function managers()
+    public function manager()
     {
-        return $this->belongsToMany(User::class, 'employee_requests', 'manager_id', 'id');
+        return $this->belongsTo(User::class, 'manager_id')->select('id', 'names', 'last_names');
+    }
+
+    public function employee()
+    {
+        return $this->belongsTo(User::class, 'employee_id');
     }
 
 }

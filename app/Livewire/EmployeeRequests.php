@@ -20,10 +20,13 @@ class EmployeeRequests extends Component
 
     public function render()
     {
-        $solicitudes = Solicitudes::with('managers')->get();
+        $solicitudes = Solicitudes::with(['manager', 'employee'])->get();
 
-        dd($solicitudes);
-
-        return view('livewire.employee-requests');
+        return view(
+            'livewire.employee-requests',
+            [
+                'solicitudes' => $solicitudes,
+            ]
+        );
     }
 }
