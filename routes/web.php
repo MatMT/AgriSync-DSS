@@ -64,6 +64,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     // =============================================== Acceso según Permiso
     Route::group(['prefix' => '/solicitudes', 'as' => 'rq.'], function () {
         Route::get('/', [EmployeeRequest::class, 'index'])->name('index');
+        Route::post('/', [EmployeeRequest::class, 'store'])->name('store');
         // Route::post('/sucursal/{branch}', [EmployeeRequest::class, 'home'])->name('logout');
     })->middleware(['role:Gerente General']);
 

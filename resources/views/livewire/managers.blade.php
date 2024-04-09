@@ -42,8 +42,10 @@
                             </td>
                         </tr>
                     @empty
-                        <tr>
-                            <td>No hay</td>
+                        <tr class="bg-white border-b text-gray-900">
+                            <td class="px-6 py-4 text-center uppercase font-semibold text-gray-700" colspan="6">
+                                No hay gerentes registrados
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>

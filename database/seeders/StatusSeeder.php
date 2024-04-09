@@ -28,6 +28,7 @@ class StatusSeeder extends Seeder
 
             // General
             ['state' => 'Pendiente',],
+            ['state' => 'Finalizado',],
         ];
 
         Status::insert($registros);

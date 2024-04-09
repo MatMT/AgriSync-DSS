@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
     {
         // Obtención de State Existente
         $stateActive = Status::first();
-        $statePending = Status::latest('id')->first();
+        $statePending = Status::where('state', 'Pendiente')->first();
 
         // Registro de Cuentas Administrativas
         User::create([
@@ -31,7 +31,7 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
             'DUI' => '12345678-9',
             'remember_token' => Str::random(10),
-            'state_id' => $stateActive->id
+            'status_id' => $stateActive->id
         ])->assignRole(['Gerente General']);
 
         User::create([
@@ -43,7 +43,7 @@ class AdminSeeder extends Seeder
             'DUI' => '12345678-8',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'state_id' => $stateActive->id
+            'status_id' => $stateActive->id
         ])->assignRole(['Gerente Sucursal']);
 
 
@@ -56,7 +56,7 @@ class AdminSeeder extends Seeder
             'DUI' => '12345678-7',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
-            'state_id' => $statePending->id
+            'status_id' => $statePending->id
         ])->assignRole(['Cajero']);
 
         // =============================================

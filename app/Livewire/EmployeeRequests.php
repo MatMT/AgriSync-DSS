@@ -20,7 +20,9 @@ class EmployeeRequests extends Component
 
     public function render()
     {
-        $solicitudes = Solicitudes::with(['manager', 'employee'])->orderby('status_id', 'asc')->get();
+        $solicitudes = Solicitudes::where('status_id', 7)
+            ->with(['manager', 'employee'])
+            ->orderby('employee_id', 'asc')->get();
 
         return view(
             'livewire.employee-requests',

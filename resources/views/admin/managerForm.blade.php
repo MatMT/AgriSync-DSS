@@ -3,7 +3,7 @@
     <div class="relative w-full">
         <input type="text"
             class=" text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Nombre de la sucursal" name="names" value="{{ old('names') }}">
+            placeholder="Nombres" name="names" value="{{ old('names') }}">
     </div>
 </div>
 <!--  -->
@@ -12,7 +12,7 @@
     <div class="relative w-full">
         <input type="text"
             class=" text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Nombre de la sucursal" name="last_names" value="{{ old('last_names') }}">
+            placeholder="Apellidos" name="last_names" value="{{ old('last_names') }}">
     </div>
 </div>
 <!--  -->
@@ -21,7 +21,7 @@
     <div class="relative w-full">
         <select type="select"
             class="text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Ubicación de la sucursal" name="gender" value="{{ old('gender') }}">
+            name="gender" value="{{ old('gender') }}">
             <option value="" selected disabled>-- Seleccione --</option>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
@@ -34,7 +34,7 @@
     <div class="relative w-full">
         <input type="text"
             class=" text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Nombre de la sucursal" name="DUI" value="{{ old('DUI') }}">
+            placeholder="DUI" name="DUI" value="{{ old('DUI') }}">
     </div>
 </div>
 <!--  -->
@@ -43,7 +43,7 @@
     <div class="relative w-full">
         <input type="text"
             class="text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Ubicación de la sucursal" name="email" value="{{ old('email') }}">
+            placeholder="Email" name="email" value="{{ old('email') }}">
     </div>
 </div>
 <!--  -->
@@ -52,7 +52,7 @@
     <div class="relative w-full">
         <input type="text"
             class="text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Ubicación de la sucursal" name="password" value="con123">
+            placeholder="Contraseña preestablecida" name="password" value="con123">
     </div>
 </div>
 

@@ -16,7 +16,7 @@ class EmployeeRequestSeeder extends Seeder
     public function run(): void
     {
         // Obtención de State Existente
-        $statePending = Status::latest('id')->first();
+        $statePending = Status::where('state', 'Pendiente')->first();
         // Obtener Gerente de Sucursal
         $managerLibertCash = User::where('email', 'oscar@agrisync.com')->first();
         // Obtener Empleado solicitado

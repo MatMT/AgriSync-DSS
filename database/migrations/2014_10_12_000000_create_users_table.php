@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->char('DUI', 10)->unique()->nullable();
             $table->enum('gender', ['M', 'F'])->default(null);
             $table->string('profile_pic', 41)->default("default-pfp.png");
-            $table->unsignedBigInteger('state_id')->nullable()
+            $table->unsignedBigInteger('status_id')->nullable()
                 ->nullOnDelete();
 
             // Validación de Correo ==========================
@@ -30,7 +30,7 @@ return new class extends Migration {
             $table->timestamps();
 
             // Llaves foraneas ==========================
-            $table->foreign('state_id')->references('id')->on('statuses');
+            $table->foreign('status_id')->references('id')->on('statuses');
         });
     }
 
