@@ -19,6 +19,8 @@ class RoleSeeder extends Seeder
         $roleGG = Role::create(['name' => 'Gerente General']);
         $roleGS = Role::create(['name' => 'Gerente Sucursal']);
         $roleCJ = Role::create(['name' => 'Cajero']);
+        $rolePS = Role::create(['name' => 'Prestamista']);
+        $roleCL = Role::create(['name' => 'Cliente']);
 
         // Permisos ================================
         // Administración Gerente General
@@ -30,6 +32,12 @@ class RoleSeeder extends Seeder
 
         // Administración Panel Cajero
         Permission::create(['name' => 'admin.cj.index'])->syncRoles([$roleCJ]);
+
+        // Usabilidad Panel Prestamista
+        Permission::create(['name' => 'user.ps.index'])->syncRoles([$rolePS]);
+
+        // Usabilidad Panel Cliente
+        Permission::create(['name' => 'user.cl.index'])->syncRoles([$roleCL]);
     }
 
 }

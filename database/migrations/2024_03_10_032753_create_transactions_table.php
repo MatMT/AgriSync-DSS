@@ -26,7 +26,7 @@ return new class extends Migration {
                 ->constrained('accounts')
                 ->nullOnDelete();
 
-            $table->foreignId('sending_account_id')->nullable()
+            $table->foreignId('sender_account_id')->nullable()
                 ->constrained('accounts')
                 ->nullOnDelete();
 

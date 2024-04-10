@@ -32,5 +32,11 @@ class DatabaseSeeder extends Seeder
         // Generar Usuarios de Prueba =================
         \App\Models\User::factory(10)->create();
 
+        // Generar Cuentas de Prueba ==================
+        $this->call(AccountSeeder::class);
+
+        // Generar Transacciones de Prueba ============
+        $this->call(TransactionSeeder::class);
+
     }
 }

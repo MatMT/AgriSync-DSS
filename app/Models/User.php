@@ -59,13 +59,19 @@ class User extends Authenticatable
         return $this->hasOne(Branch::class, 'local_manager_id');
     }
 
-    public function managedRequests()
+    public function managedRequests(): HasMany
     {
         return $this->hasMany(EmployeeRequest::class, 'manager_id');
     }
 
-    public function requestedEmployees()
+    public function requestedEmployees(): HasMany
     {
         return $this->hasMany(EmployeeRequest::class, 'employee_id');
+    }
+
+    // Un usuario (Cliente) tiene muchas Cuentas
+    public function accounts(): HasMany
+    {
+        return $this->hasMany(Account::class, 'client_id');
     }
 }

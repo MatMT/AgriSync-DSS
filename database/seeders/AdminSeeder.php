@@ -60,6 +60,20 @@ class AdminSeeder extends Seeder
         ])->assignRole(['Cajero']);
 
         // =============================================
+
+        User::create(
+            [
+                'names' => 'Norman Rafael',
+                'last_names' => 'Espinoza Anzora',
+                'email' => 'norman@agrisync.com',
+                'password' => Hash::make('con123'),
+                'DUI' => '12345678-6',
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'status_id' => $statePending->id
+            ]
+        )->assignRole(['Cliente']);
+
         // $registros = [
         //     // Gerente General
         //     [
