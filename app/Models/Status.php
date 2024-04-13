@@ -13,4 +13,9 @@ class Status extends Model
     {
         return $this->hasMany(EmployeeRequest::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

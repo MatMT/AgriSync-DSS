@@ -69,9 +69,16 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     })->middleware(['role:Gerente General']);
 
     // =============================================== Acceso según Permiso
-    Route::group(['prefix' => '/sucursales', 'as' => 'br.'], function () {
-        Route::get('/', [BranchesController::class, 'index'])->name('index');
+    Route::group(['prefix' => '/sucursal', 'as' => 'br.'], function () {
+        Route::get('/{branch?}', [BranchesController::class, 'index'])->name('index');
+
+        // Creación de una nueva sucursal
         Route::post('/', [BranchesController::class, 'store'])->name('store');
+
+        // Actualización de una sucursal
+        Route::put('/{branch}', [BranchesController::class, 'update'])->name('update');
     });
+
+    // 
 });
 

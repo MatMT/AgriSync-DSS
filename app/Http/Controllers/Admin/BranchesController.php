@@ -17,23 +17,37 @@ class BranchesController extends Controller
         $this->middleware(['role:Gerente General']);
     }
 
-    public function index()
+    public function index($id = null)
     {
+        $branch = null;
+        $header = 'Sucursales';
+        $subheader = 'Registrando una nueva sucursal';
+
+        // Si se recibe un id, se busca la sucursal
+        if ($id) {
+            $branch = Branch::findOrFail($id);
+            $gerente = $branch->gerente()->first();
+            $header = $branch->name;
+            $subheader = 'Administrando una sucursal ';
+        }
+
         $managersDisp = User::role('Gerente Sucursal')
             ->select('id', 'names', 'email')
-            ->whereDoesntHave('Sucursal')
+            ->whereDoesntHave('administraSucursal')
             ->get('name');
 
         // Evaluar si no hay gerentes disponibles
-        if ($managersDisp->isEmpty()) {
+        if (!$branch && $managersDisp->isEmpty()) {
             return redirect()
                 ->route('admin.gg.indexGS')
                 ->withErrors(['no_managers' => 'No Hay Gerentes Disponibles, primero agrega uno.']);
         }
 
         return view('admin.branches', [
-            'header' => 'Sucursales',
-            'subHeader' => 'Registrando una nueva sucursal',
+            'header' => $header,
+            'subHeader' => $subheader,
+            'branch' => $branch ?? null,
+            'gerente' => $gerente ?? null,
             'gerentes' => $managersDisp,
         ]);
     }
@@ -43,6 +57,24 @@ class BranchesController extends Controller
         $data = $request->validated();
 
         Branch::create([
+            'name' => $data['name'],
+            'region' => $data['region'],
+            'local_manager_id' => $data['manager'],
+            // 'img ' => $data['img'],
+        ]);
+
+        return redirect()->route('admin.gg.home', Auth::user()->id);
+    }
+
+    public function update(BranchRequest $request, $id)
+    {
+        // Validar la información enviada 
+        $data = $request->validated();
+
+        // Buscar la sucrusal a modificar
+        $branch = Branch::findOrFail($id);
+
+        $branch->update([
             'name' => $data['name'],
             'region' => $data['region'],
             'local_manager_id' => $data['manager'],

@@ -25,25 +25,25 @@
                 </div>
             @else
                 @foreach ($sucursales as $sucursal)
-                    <div
+                    <a href="{{ route('admin.br.index', $sucursal) }}"
                         class="min-h-[160px] md:min-h-[220px] flex-col relative flex justify-center rounded-xl bg-slate-100 text-justify text-sm md:flex-col cursor-pointer">
                         <div class="flex justify-center items-center font-bold h-full text-left w-full">
                             <p class="text-4xl xl:text-6xl">{{ $sucursal->name }}</p>
                         </div>
                         <div
                             class="flex flex-col md:flex-row justify-around items-center font-bold h-full max-h-[60px] ">
-                            <a href=""
-                                class="rounded-bl-none md:rounded-bl-lg w-full h-full overflow-hidden bg-slate-700 hover:bg-slate-600 text-gray-300 flex justify-center items-center">
-                                <p class="text-base text-center">Administrar Personal</p>
-                            </a>
+                            <p
+                                class="rounded-bl-none md:rounded-bl-lg w-full h-full overflow-hidden bg-slate-700 hover:bg-slate-600 text-gray-300 flex justify-center items-center text-base text-center">
+                                {{ $sucursal->users_count }} usuarios</p>
+                            </p>
                             <div
                                 class="rounded-b-lg md:rounded-b-none md:rounded-br-lg w-full h-full hover:bg-slate-600 bg-slate-700 text-gray-300 flex justify-center items-center">
                                 <p class="text-base text-center">
-                                    {{ $sucursal->gerente ? $sucursal->gerente->names : 'SIN GERENTE' }}</p>
+                                    {{ $sucursal->gerente ? $sucursal->gerente->names : 'SIN GERENTE' }} </p>
                             </div>
 
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             @endif
 

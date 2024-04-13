@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Status;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\UsersMapping;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -40,12 +41,24 @@ class AdminSeeder extends Seeder
             'email' => 'oscar@agrisync.com',
             'password' => Hash::make('con123'),
             'gender' => 'M',
+            // 'branch_id' => 1,
             'DUI' => '12345678-8',
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'status_id' => $stateActive->id
         ])->assignRole(['Gerente Sucursal']);
 
+        User::create([
+            'names' => 'Dayana',
+            'last_names' => 'Márquez',
+            'email' => 'dayana@agrisync.com',
+            'password' => Hash::make('con123'),
+            'gender' => 'F',
+            'DUI' => '12345678-1',
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'status_id' => $stateActive->id
+        ])->assignRole(['Gerente Sucursal']);
 
         User::create([
             'names' => 'Luis Ernesto',
@@ -59,7 +72,7 @@ class AdminSeeder extends Seeder
             'status_id' => $statePending->id
         ])->assignRole(['Cajero']);
 
-        // =============================================
+        // Registro de Cuentas de Clientes
 
         User::create(
             [
@@ -68,25 +81,12 @@ class AdminSeeder extends Seeder
                 'email' => 'norman@agrisync.com',
                 'password' => Hash::make('con123'),
                 'DUI' => '12345678-6',
+                // 'branch_id' => 1,
                 'email_verified_at' => now(),
                 'remember_token' => Str::random(10),
                 'status_id' => $statePending->id
             ]
         )->assignRole(['Cliente']);
 
-        // $registros = [
-        //     // Gerente General
-        //     [
-        //         'names' => 'Oscar Mateo',
-        //         'last_names' => 'Elías López',
-        //         'email' => 'oscar@email.com',
-        //         'password' => Hash::make('con123'),
-        //         'gender' => 'M',
-        //         'created_at' => now(),
-        //         'updated_at' => now()
-        //     ]
-        // ];
-
-        // Admin::insert($registros);
     }
 }

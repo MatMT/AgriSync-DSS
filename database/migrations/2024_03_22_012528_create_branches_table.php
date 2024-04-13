@@ -15,6 +15,7 @@ return new class extends Migration {
 
             $table->string('name', 35);
             $table->string('region', 30)->nullable();
+            // $table->integer('users', false, true)->default(0);
 
             $table->unsignedBigInteger('local_manager_id')->nullable();
 

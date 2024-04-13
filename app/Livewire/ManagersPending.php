@@ -14,7 +14,7 @@ class ManagersPending extends Component
     {
         // Obtención de datos dinámicos
         $usuarios = User::role('Gerente Sucursal')
-            ->whereDoesntHave('Sucursal')->get();
+            ->whereDoesntHave('administraSucursal')->get();
 
         return view('livewire.managers-pending', [
             'users' => $usuarios,

@@ -3,7 +3,8 @@
     <div class="relative w-full">
         <input type="text"
             class=" text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Nombre de la sucursal" name="name" value="{{ old('name') }}">
+            placeholder="Nombre de la sucursal" name="name"
+            value="{{ old('name', isset($branch) ? $branch->name : '') }}">
     </div>
 </div>
 <!--  -->
@@ -12,7 +13,8 @@
     <div class="relative w-full">
         <input type="text"
             class="text-gray-700 w-full rounded-lg border-slate-300 px-3 font-medium placeholder-slate-400 outline-none transition-all duration-300 py-2 pl-5 pr-10"
-            placeholder="Ubicación de la sucursal" name="region" value="{{ old('region') }}">
+            placeholder="Ubicación de la sucursal" name="region"
+            value="{{ old('region', isset($branch) ? $branch->region : '') }}">
     </div>
 </div>
 <!--  -->

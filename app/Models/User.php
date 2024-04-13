@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\BelongsToManyRelationship;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Sanctum\HasApiTokens;
@@ -54,7 +56,7 @@ class User extends Authenticatable
 
 
     // Un usuario (Gerente) tiene una Sucursal
-    public function Sucursal(): HasOne
+    public function administraSucursal(): HasOne
     {
         return $this->hasOne(Branch::class, 'local_manager_id');
     }
@@ -73,5 +75,17 @@ class User extends Authenticatable
     public function accounts(): HasMany
     {
         return $this->hasMany(Account::class, 'client_id');
+    }
+
+    // Un usuario tiene un Estado
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
+
+    // Un usuario tiene es parte de una sucursal
+    public function branch(): BelongsTo
+    {
+        return $this->belongsTo(Branch::class, 'branch_id');
     }
 }

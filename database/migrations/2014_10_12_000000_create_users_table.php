@@ -20,6 +20,7 @@ return new class extends Migration {
             // Información extra =============================
             $table->char('DUI', 10)->unique()->nullable();
             $table->enum('gender', ['M', 'F'])->default(null);
+            // $table->foreignId('branch_id')->nullable()->constrained()->nullOnDelete();
             $table->string('profile_pic', 41)->default("default-pfp.png");
             $table->unsignedBigInteger('status_id')->nullable()
                 ->nullOnDelete();
@@ -29,7 +30,7 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
 
-            // Llaves foraneas ==========================
+            // Llaves foraneas ==========================P
             $table->foreign('status_id')->references('id')->on('statuses');
         });
     }

@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
         // Generar Sucursales =========================
         $this->call(BranchSeeder::class);
 
+        // Generar Mapeo de Usuarios ==================
+        $this->call(UsersMappingSeeder::class);
+
         // Generar Solicitud de Empleado ==============
         $this->call(EmployeeRequestSeeder::class);
 
