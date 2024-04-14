@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\BranchesController;
 use App\Http\Controllers\admin\CrudManager;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
@@ -82,3 +84,8 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     // 
 });
 
+Route::group(['prefix' => '/client', 'as' => 'client.'], function () {
+    Route::get('/{user}', [ClientController::class, 'show'])->name('profile');
+
+    Route::get('/{user}/cuenta/{account}', [AccountController::class, 'show'])->name('account');
+});

@@ -14,4 +14,9 @@ class Account extends Model
     {
         return $this->belongsTo(User::class, 'client_id');
     }
+
+    public function transacciones()
+    {
+        return $this->hasMany(Transaction::class, 'sender_account_id');
+    }
 }

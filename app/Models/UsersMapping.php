@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UsersMapping extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'branch_id'
+    ];
 }

@@ -1,6 +1,6 @@
 <div class="w-full">
 
-    <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Clientes de la Sucursal</h3>
+    <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Transacciones</h3>
     <br>
 
     <div class="mt-6 overflow-x-auto">
@@ -11,49 +11,47 @@
                         Estado
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Empleado
+                        Tipo
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Gerente
+                        Monto
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Fecha de Registro
+                        Aprobo
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Acción
+                        Recibe
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Fecha
                     </th>
                 </tr>
             </thead>
             <tbody class="text-center">
 
-                @forelse ($clients as $client)
+                @forelse ($transacctions as $transaction)
                     <tr class="bg-white border-b  text-gray-900">
                         <th scope="row"
                             class="px-6 py-4 font-bold uppercase whitespace-nowrap 
-                    {{ $client->status->state == 'Activo' ? 'text-green-600' : 'text-gray-500' }}
+                    {{ $transaction->status_transaction_id == 'Activo' ? 'text-green-600' : 'text-gray-500' }}
                     ">
-                            {{ $client->status->state }}
+                            {{ $transaction->status_transaction_id }}
                         </th>
                         <td class="px-6 py-4">
-                            {{ $client->names . ' ' . $client->last_names }}
+                            {{ $transaction->type_transaction_id }}
                         </td>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $client->names }}
+                            {{ $transaction->amount }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $client->created_at->format('d/m/Y') }}
+                            {{ $transaction->admin_id }}
                         </td>
-                        <td class="px-6 py-4 flex gap-4 justify-center">
-                            <a href="{{ route('client.profile', $client) }}" name="action" value="aceptar"
-                                class="bg-emerald-600 text-white px-4 py-2 rounded-md cursor-pointer">
-                                Ver perfil
-                            </a>
-
-                            {{-- <button type="submit" name="action" value="rechazar"
-                                    class="bg-red-600 text-white px-4 py-2 rounded-md cursor-pointer">
-                                    Rechazar
-                                </button> --}}
+                        <td class="px-6 py-4">
+                            {{ $transaction->recipient_account_id }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $transaction->created_at->format('d/m/Y') }}
                         </td>
                     </tr>
                 @empty
