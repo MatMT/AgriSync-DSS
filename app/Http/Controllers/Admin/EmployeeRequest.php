@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\UsersMapping;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
@@ -28,7 +29,8 @@ class EmployeeRequest extends Controller
         $request->validate([
             'action' => 'required|in:aceptar,rechazar',
             'solicitud_id' => 'required|exists:employee_requests,id',
-            'employee_id' => 'required|exists:users,id'
+            'employee_id' => 'required|exists:users,id',
+            'branch_id' => 'required|exists:branches,id'
         ]);
 
         $accion = $request->action;
@@ -37,9 +39,16 @@ class EmployeeRequest extends Controller
         $solicitud = \App\Models\EmployeeRequest::find($request->solicitud_id);
 
         // Evaluar el Estado de la Solicitud
-        $accion == 'aceptar'
-            ? $employee->status_id = 1
-            : $employee->status_id = 6;
+        if ($accion == 'aceptar') {
+            $employee->status_id = 1; // Activo
+            // Registrar empleado en el mapeo de la sucursal
+            UsersMapping::create([
+                'user_id' => $employee->id,
+                'branch_id' => $request->branch_id
+            ]);
+        } else {
+            $employee->status_id = 6; // Rechazado
+        }
 
         $solicitud->status_id = 8; // Finalizado
 

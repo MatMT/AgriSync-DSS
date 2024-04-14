@@ -20,7 +20,7 @@ class Managers extends Component
     {
         // Obtención de datos dinámicos
         $usuarios = User::role('Gerente Sucursal')
-            ->whereHas('Sucursal')
+            ->whereHas('administraSucursal')
             ->when($this->dui, function ($query) {
                 $query->where('DUI', 'LIKE', "%" . $this->dui . "%");
             })->get();

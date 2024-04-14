@@ -47,6 +47,8 @@
                         {{-- Formulario para aceptar o rechazar --}}
                         <form action="{{ route('admin.rq.store') }}" method="POST">
                             @csrf
+                            <input type="hidden" name="branch_id"
+                                value="{{ $solicitud->manager->administraSucursal->id }}">
                             <input type="hidden" name="solicitud_id" value="{{ $solicitud->id }}">
                             <input type="hidden" name="employee_id" value="{{ $solicitud->employee->id }}">
 
