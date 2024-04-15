@@ -11,10 +11,10 @@
                         Estado
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Empleado
+                        Tipo
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Gerente
+                        Nombre
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Fecha de Registro
@@ -34,12 +34,12 @@
                     ">
                             {{ $client->status->state }}
                         </th>
+                        <td class="px-6 py-4 font-bold">
+                            -- Pendiente --
+                        </td>
+                        </td>
                         <td class="px-6 py-4">
                             {{ $client->names . ' ' . $client->last_names }}
-                        </td>
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $client->names }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $client->created_at->format('d/m/Y') }}

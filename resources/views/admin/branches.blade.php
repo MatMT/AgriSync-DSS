@@ -52,4 +52,16 @@
             </button>
         </div>
     </form>
+
+    @if ($branch)
+        <br>
+        <div class="bg-white w-full h-[1px] mb-8"></div>
+        <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Empleados de la Sucursal</h3>
+
+        <br>
+        @include('components.requestAlerts')
+        <br>
+
+        <livewire:employees-list :branchId="$branch->id">
+    @endif
 @endsection

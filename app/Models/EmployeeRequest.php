@@ -27,4 +27,10 @@ class EmployeeRequest extends Model
         return $this->belongsTo(User::class, 'employee_id')->select('id', 'names', 'last_names');
     }
 
+    // Auto Relación
+    public function employeeRequests()
+    {
+        return $this->hasMany(EmployeeRequest::class);
+    }
+
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\Admin\BranchRequest;
+use App\Models\EmployeeRequest;
 
 class BranchesController extends Controller
 {
@@ -20,6 +21,7 @@ class BranchesController extends Controller
     public function index($id = null)
     {
         $branch = null;
+        $solicitudes = null;
         $header = 'Sucursales';
         $subheader = 'Registrando una nueva sucursal';
 
@@ -29,6 +31,7 @@ class BranchesController extends Controller
             $gerente = $branch->gerente()->first();
             $header = $branch->name;
             $subheader = 'Administrando una sucursal ';
+            $solicitudes = EmployeeRequest::where('manager_id', $gerente->id)->get();
         }
 
         $managersDisp = User::role('Gerente Sucursal')
@@ -49,6 +52,7 @@ class BranchesController extends Controller
             'branch' => $branch ?? null,
             'gerente' => $gerente ?? null,
             'gerentes' => $managersDisp,
+            'solicitudes' => $solicitudes
         ]);
     }
 

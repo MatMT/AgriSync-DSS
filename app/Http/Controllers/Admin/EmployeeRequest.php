@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branch;
 use App\Models\User;
 use App\Models\UsersMapping;
 use Illuminate\Http\Request;
@@ -15,12 +16,19 @@ class EmployeeRequest extends Controller
         $this->middleware(['role:Gerente General']);
     }
 
-    public function index()
+    public function index(Branch $branch = null)
     {
+        $subHeader = 'Todas las Sucursales';
+
+        if ($branch) {
+            $subHeader = $branch->name;
+        }
+
         return view('admin.request', [
             // Header   ====
             'header' => 'Solicitudes de Personal',
-            'subHeader' => 'Todas las Sucursales'
+            'subHeader' => $subHeader,
+            'branch' => $branch
         ]);
     }
 

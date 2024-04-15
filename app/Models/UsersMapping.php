@@ -13,4 +13,10 @@ class UsersMapping extends Model
         'user_id',
         'branch_id'
     ];
+
+    // Relación uno a muchos inversa
+    public function user()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

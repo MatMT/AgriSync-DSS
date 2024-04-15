@@ -16,7 +16,7 @@ class HomeGerenteGeneral extends Controller
             return redirect()->route('admin.login.index');
         }
 
-        $requests = EmployeeRequest::where('status_id', 7)->count();
+        $requests = EmployeeRequest::where('status_id', 7)->get();
 
         return view('generalManager.home', [
             'admin' => $user,
@@ -24,6 +24,7 @@ class HomeGerenteGeneral extends Controller
             // Header   ===
             'header' => "Bienvenido! $user->last_names",
             'subHeader' => $user->getRoleNames()->first(),
+            'branch' => null
         ]);
     }
 }

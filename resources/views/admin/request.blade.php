@@ -17,6 +17,5 @@
     <h2 class="text-3xl md:text-5xl text-center font-bold my-5">Acepta o Suspende Personal</h2>
 
     @include('components.alertsError')
-
-    <livewire:employee-requests />
+    <livewire:employee-requests :branch="$branch" />
 @endsection
