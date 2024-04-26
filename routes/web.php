@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\EmployeeRequest;
 
+use App\Http\Controllers\Admin\CajeroController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -89,3 +90,10 @@ Route::group(['prefix' => '/client', 'as' => 'client.'], function () {
 
     Route::get('/{user}/cuenta/{account}', [AccountController::class, 'show'])->name('account');
 });
+
+
+Route::group(['prefix' => '/cajero', 'as' => 'cj.'], function () {
+    // Cajero =============================== Acceso según Rol
+    Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
+    Route::post('/{user}', [CajeroController::class, ''])->name('logout');
+})->middleware(['role:Cajero']);
