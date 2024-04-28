@@ -32,7 +32,7 @@ class UserResource extends JsonResource
             'names' => $this->names,
             'last_names' => $this->last_names,
             'gender' => $this->gender,
-            'role' => $this->role,
+            'role' => $this->getRoleNames()->first(),
             'cuentas' => $accountData,
         ];
     }

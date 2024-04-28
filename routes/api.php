@@ -21,11 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['prefix' => 'v1'], function () {
-
-    Route::apiResource('/account', AccountController::class);
+Route::group(['prefix' => 'v1', 'as' => 'api.'], function () {
 
     Route::apiResource('/user', UserController::class);
+    Route::apiResource('/account', AccountController::class);
 
 });
 

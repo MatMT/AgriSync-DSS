@@ -58,7 +58,7 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'status_id' => $stateActive->id
-        ])->assignRole(['Gerente Sucursal']);
+        ])->assignRole(['Dependiente']);
 
         User::create([
             'names' => 'Luis Ernesto',

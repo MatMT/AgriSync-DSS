@@ -2,17 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class DependienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('dependiente.home');
     }
 
     /**
@@ -34,14 +38,9 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(string $id)
     {
-        $accounts = $user->accounts;
-
-        return view('clients.show', [
-            'client' => $user,
-            'accounts' => $accounts
-        ]);
+        //
     }
 
     /**

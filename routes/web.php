@@ -3,7 +3,8 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin\BranchesController;
 use App\Http\Controllers\admin\CrudManager;
-use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\DependienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeGerenteGeneral;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Admin\LoginController as AdminLoginController;
 use App\Http\Controllers\Admin\EmployeeRequest;
 
 use App\Http\Controllers\Admin\CajeroController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,15 +87,20 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
     // 
 });
 
-Route::group(['prefix' => '/client', 'as' => 'client.'], function () {
-    Route::get('/{user}', [ClientController::class, 'show'])->name('profile');
-
-    Route::get('/{user}/cuenta/{account}', [AccountController::class, 'show'])->name('account');
-});
-
-
 Route::group(['prefix' => '/cajero', 'as' => 'cj.'], function () {
     // Cajero =============================== Acceso según Rol
     Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
     Route::post('/{user}', [CajeroController::class, ''])->name('logout');
 })->middleware(['role:Cajero']);
+
+
+Route::group(['prefix' => '/cliente', 'as' => 'client.'], function () {
+    Route::get('/{user}', [ClientController::class, 'show'])->name('profile');
+
+    Route::get('/{user}/cuenta/{account}', [AccountController::class, 'show'])->name('account');
+});
+
+Route::group(['prefix' => '/dependiente', 'as' => 'depend.'], function () {
+    Route::get('/{user}', [DependienteController::class, 'index'])->name('home');
+});
+

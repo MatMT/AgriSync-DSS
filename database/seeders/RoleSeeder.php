@@ -21,6 +21,7 @@ class RoleSeeder extends Seeder
         $roleCJ = Role::create(['name' => 'Cajero']);
         $rolePS = Role::create(['name' => 'Prestamista']);
         $roleCL = Role::create(['name' => 'Cliente']);
+        $roleDP = Role::create(['name' => 'Dependiente']);
 
         // Permisos ================================
         // Administración Gerente General
@@ -38,6 +39,9 @@ class RoleSeeder extends Seeder
 
         // Usabilidad Panel Cliente
         Permission::create(['name' => 'user.cl.index'])->syncRoles([$roleCL]);
+
+        // Usabilidad Panel Dependiente
+        Permission::create(['name' => 'user.dp.index'])->syncRoles([$roleDP]);
     }
 
 }

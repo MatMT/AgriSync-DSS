@@ -37,14 +37,21 @@ class UserController extends Controller
      */
     public function show($dui)
     {
+        // Buscar primero el usuario por DUI
         $user = User::where('dui', $dui)->first();
 
+        // Verificar si el usuario existe
         if (!$user) {
-            // Manejar el caso en que no se encuentren usuarios propietarios
             return response()->json(['message' => 'Usuario no encontrado'], 404);
         }
 
-        return new UserResource($user);
+        // Comprobar si el usuario tiene alguno de los roles necesarios
+        if ($user->hasAnyRole(['Cliente', 'Prestamista'])) {
+            return new UserResource($user);
+        } else {
+            // Si el usuario no tiene los roles necesarios, retornar error
+            return response()->json(['message' => 'Acceso no autorizado, el usuario no tiene el rol adecuado'], 403);
+        }
     }
 
     /**
