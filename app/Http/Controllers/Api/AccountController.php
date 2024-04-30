@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
+use App\Models\Account;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AccountController extends Controller
 {
@@ -26,10 +27,17 @@ class AccountController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $account = Account::findOrFail($id);
+        $transacts = $account->transacciones;
+
+        return view('clients.account', [
+            'account' => $account,
+            'transacts' => $transacts
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.

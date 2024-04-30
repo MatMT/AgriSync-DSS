@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             return [
                 'id' => $account->id,
                 'balance' => $account->balance,
+                'open_date' => $account->created_at->format('Y-m-d'),
             ];
         });
 
@@ -33,6 +34,7 @@ class UserResource extends JsonResource
             'last_names' => $this->last_names,
             'gender' => $this->gender,
             'role' => $this->getRoleNames()->first(),
+            'status' => $this->status->state,
             'cuentas' => $accountData,
         ];
     }

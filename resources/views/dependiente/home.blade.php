@@ -11,7 +11,8 @@
 <h2 class="text-3xl md:text-5xl text-center font-bold my-10">Dependiente</h2>
 
 <form id="formBuscarUser" class="mb-4">
-    <input type="text" id="userDUI" placeholder="Ingrese DUI del usuario" class="p-2 border border-gray-300 rounded-md">
+    <input type="text" id="userDUI" placeholder="Ingrese DUI del usuario" class="p-2 border border-gray-300 rounded-md"
+        value="12345678-6">
     <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
         Buscar Usuario
     </button>
@@ -26,12 +27,15 @@
                 <th class="px-4 py-2">Apellido</th>
                 <th class="px-4 py-2">Role</th>
                 <th class="px-4 py-2">Status ID</th>
-                <th class="px-4 py-2">Fecha de Creación</th>
+                <th class="px-4 py-2">Realizar transacción</th>
             </tr>
         </thead>
         <tbody id="tableBody" class="bg-white">
         </tbody>
     </table>
+</div>
+
+<div id="resultadoCuentas" class="mt-10 w-full max-w-screen-lg">
 </div>
 
 
@@ -43,7 +47,8 @@
 <!-- Pasar URL a JS -->
 <script type="text/javascript">
     window.Laravel = {
-        apiUserURL: "{{url('api/v1/user')}}"
+        apiUserURL: "{{url('api/v1/user')}}",
+        apiAccountURL: "{{url('api/v1/account')}}"
     }
 </script>
 
