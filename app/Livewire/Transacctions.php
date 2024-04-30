@@ -8,9 +8,10 @@ class Transacctions extends Component
 {
     public $transacctions;
 
-    public function mount($transacctions)
+    public function mount($transacctionsIncomes, $transacctionsExpenses)
     {
-        $this->transacctions = $transacctions;
+        $this->transacctions['expenses'] = $transacctionsExpenses;
+        $this->transacctions['incomes'] = $transacctionsIncomes;
     }
 
     public function render()

@@ -19,4 +19,9 @@ class Account extends Model
     {
         return $this->hasMany(Transaction::class, 'sender_account_id');
     }
+
+    public function transaccionesIngresos()
+    {
+        return $this->hasMany(Transaction::class, 'recipient_account_id');
+    }
 }

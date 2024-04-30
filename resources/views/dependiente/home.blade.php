@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+@section('titulo')
+Dependiente de Banco
+@endsection
+
+
 @section('contenido')
 
 <div class="col-12">
@@ -10,24 +16,25 @@
 
 <h2 class="text-3xl md:text-5xl text-center font-bold my-10">Dependiente</h2>
 
-<form id="formBuscarUser" class="mb-4">
-    <input type="text" id="userDUI" placeholder="Ingrese DUI del usuario" class="p-2 border border-gray-300 rounded-md"
-        value="12345678-6">
-    <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+<form id="formBuscarUser" class="mb-4 flex flex-col w-full max-w-96 gap-2">
+    <input type="text" id="userDUI" placeholder="Ingrese DUI del usuario"
+        class="p-2 border border-gray-300 rounded-md w-full">
+
+    <button type="submit" class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md w-full">
         Buscar Usuario
     </button>
 </form>
 
-<div id="resultado" class="mt-10 hidden">
-    <table class="min-w-full table-auto">
-        <thead class="bg-gray-800 text-white">
+<div id="resultado" class="mt-10 hidden overflow-x-auto w-full max-w-screen-md rounded-md">
+    <table class="min-w-full table-auto ">
+        <thead class="bg-gray-800 text-white ">
             <tr>
                 <th class="px-4 py-2">ID</th>
                 <th class="px-4 py-2">Nombre</th>
                 <th class="px-4 py-2">Apellido</th>
                 <th class="px-4 py-2">Role</th>
                 <th class="px-4 py-2">Status ID</th>
-                <th class="px-4 py-2">Realizar transacción</th>
+                <th class="px-4 py-2">Cuentas</th>
             </tr>
         </thead>
         <tbody id="tableBody" class="bg-white">

@@ -30,11 +30,13 @@ class AccountController extends Controller
     public function show($id)
     {
         $account = Account::findOrFail($id);
-        $transacts = $account->transacciones;
+        $transactsExpenses = $account->transacciones;
+        $transactsIncomes = $account->transaccionesIngresos;
 
         return view('clients.account', [
             'account' => $account,
-            'transacts' => $transacts
+            'transactsEx' => $transactsExpenses,
+            'transactsIn' => $transactsIncomes
         ]);
     }
 

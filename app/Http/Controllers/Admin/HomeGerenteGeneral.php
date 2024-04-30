@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class HomeGerenteGeneral extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware(['role:Gerente General']);
+    }
+
     public function index(User $user)
     {
         // Válidar que acceda solamente desde a perfil

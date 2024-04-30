@@ -37,11 +37,13 @@ class AccountController extends Controller
      */
     public function show(string $clientId, Account $account)
     {
-        $transacts = $account->transacciones;
+        $transactsExpenses = $account->transacciones;
+        $transactsIncomes = $account->transaccionesIngresos;
 
         return view('clients.account', [
             'account' => $account,
-            'transacts' => $transacts
+            'transactsEx' => $transactsExpenses,
+            'transactsIn' => $transactsIncomes
         ]);
     }
 
