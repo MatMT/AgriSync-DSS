@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Open+Sans&display=swap"
         rel="stylesheet">
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/css/styles.css'])
+    @vite(['resources/css/app.css', 'resources/css/styles.css', 'resources/css/modal.css'])
     @vite(['resources/js/app.js'])
 </head>
 

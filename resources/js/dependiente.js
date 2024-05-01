@@ -1,15 +1,17 @@
-import { data } from 'autoprefixer';
+import { setUser, getUser } from './userState.js';
 import axios from 'axios';
 
 let baseURL = window.Laravel.apiUserURL;
 let accountURL = window.Laravel.apiAccountURL;
+window.verCuentas = verCuentas;
 
 let formBuscarUser = document.getElementById('formBuscarUser');
 let resultTable = document.getElementById('resultado');
 let resultAccount = document.querySelector('#resultadoCuentas');
 let tableBody = document.getElementById('tableBody');
 
-let user = {};
+var user = {};
+var account = {};
 
 formBuscarUser.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -27,14 +29,14 @@ formBuscarUser.addEventListener('submit', (e) => {
 });
 
 function buscarUsuario(DUI) {
-    user = {};
-    let url = baseURL + "/" + DUI;
+    setUser({});
+    account = {};
 
+    let url = baseURL + "/" + DUI;
 
     axios.get(url)
         .then((result) => {
-            user = result.data.data;
-
+            setUser(result.data.data);
             mostrarUsuario(result.data.data);
             resultTable.classList.remove('hidden');
         }).catch((err) => {
@@ -79,9 +81,9 @@ function limpiarResultados(elemento) {
 }
 
 function verCuentas() {
+    let user = getUser(); // Asegúrate de siempre obtener el estado más reciente
     limpiarResultados(resultAccount);
-    let { cuentas } = user;
-
+    const { cuentas } = user;
     // SCRIPTING
     let accounts = document.createElement('DIV');
     let hr = document.createElement('HR');
@@ -105,14 +107,16 @@ function verCuentas() {
                     </div>
 
                     <div class="flex flex-col">
-                        <h3 class="text-2xl font-bold">$${cuenta.balance}</h3>
+                        <h3 data-balanceaccid="${cuenta.id}" class="text-2xl font-bold">$${cuenta.balance}</h3>
                         <p class="text-gray-500">Abierta: ${cuenta.open_date}</p>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap gap-2 justify-center text-center">
-                    <button class="text-rose-500 hover:text-rose-600">Ingresar o Retirar</button>
-                    <a href="${accountURL}/${cuenta.id}" class=" text-violet-500 hover:text-violet-800">
+                    <button class="openModal text-rose-500 hover:text-rose-600"
+                    data-accOwner="${user.names}" data-accIdOwner="${user.id}"
+                    data-accId="${cuenta.id}" data-accMount="${cuenta.balance}">Ingresar o Retirar</button>
+                    <a href="${accountURL}/${cuenta.id}" class=" text-violet-500 hover:text-vioresultAccountlet-800">
                         <button class="text-violet-500 hover:text-violet-800">Ver movimientos</button>
                     </a>
                 </div>
@@ -126,15 +130,6 @@ function verCuentas() {
     resultAccount.appendChild(title);
     resultAccount.appendChild(accounts);
 }
-
-resultAccount.addEventListener('click', (e) => {
-    if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Ingresar o Retirar') {
-        console.log('Ingresar o Retirar');
-    } else if (e.target.tagName === 'BUTTON' && e.target.textContent === 'Ver movimientos') {
-        console.log('Ver movimientos');
-    }
-})
-
 
 function validarDUI(DUI) {
     let regex = /^\d{8}-\d{1}$/;

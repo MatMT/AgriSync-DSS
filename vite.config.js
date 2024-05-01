@@ -5,9 +5,15 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/styles.css',
                 'resources/css/app.css',
-                'resources/js/app.js'
+                'resources/css/modal.css',
+                'resources/css/styles.css',
+                // JS
+                'resources/js/app.js',
+                'resources/js/init.js',
+                'resources/js/userState.js',
+                'resources/js/dependiente.js',
+                'resources/js/modal.js'
             ],
             refresh: true,
         }),

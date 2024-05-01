@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\TransactionController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.'], function () {
 
     Route::apiResource('/user', UserController::class);
     Route::apiResource('/account', AccountController::class);
+    Route::apiResource('/transaction', TransactionController::class);
 
 });
 
