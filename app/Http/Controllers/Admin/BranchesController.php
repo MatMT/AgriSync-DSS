@@ -31,7 +31,8 @@ class BranchesController extends Controller
             $gerente = $branch->gerente()->first();
             $header = $branch->name;
             $subheader = 'Administrando una sucursal ';
-            $solicitudes = EmployeeRequest::where('manager_id', $gerente->id)->get();
+            $solicitudes = EmployeeRequest::where('manager_id', $gerente->id)
+                ->where('status_id', 7)->get();
         }
 
         $managersDisp = User::role('Gerente Sucursal')

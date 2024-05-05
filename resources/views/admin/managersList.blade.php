@@ -1,4 +1,4 @@
-<ul class="divide-y divide-gray-200 min-h-0 md:min-h-[460px] max-h-[460px] overflow-y-auto">
+<ul class="divide-y divide-gray-200 min-h-0 lg:min-h-[422px] max-h-[460px] overflow-y-auto">
     @if($gerente)
     <li class="py-3 ">
         <div class="flex items-center space-x-4 rtl:space-x-reverse">

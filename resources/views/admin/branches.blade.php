@@ -1,22 +1,22 @@
 @extends('layouts.admin_app')
 
 @section('titulo')
-    Solicitudes de Personal
+Solicitudes de Personal
 @endsection
 
 @section('contenido')
-    <div class="bg-white w-full h-[1px] mb-8"></div>
+<div class="bg-white w-full h-[1px] mb-8"></div>
 
-    @if ($branch)
-        <livewire:clients :branchId="$branch->id">
-            <br><br>
-            <div class="bg-white w-full h-[1px] mb-8"></div>
+@if ($branch)
+<livewire:clients :branchId="$branch->id">
+    <br><br>
+    <div class="bg-white w-full h-[1px] mb-8"></div>
     @endif
 
     @if ($errors->any())
-        <div class="pb-2 md:pb-12 w-full">
-            @include('components.alertsError')
-        </div>
+    <div class="pb-2 md:pb-12 w-full">
+        @include('components.alertsError')
+    </div>
     @endif
 
     <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Administración</h3>
@@ -31,7 +31,7 @@
 
         {{-- Método de envío en caso de ser UPDATE --}}
         @if ($branch)
-            @method('PUT')
+        @method('PUT')
         @endif
 
         {{-- Atributos de la sucursal --}}
@@ -44,6 +44,13 @@
         {{-- Listado de Gerentes Disponibles --}}
         <div class="w-full lg:w-1/3">
             <h5 class="font-semibold text-3xl pb-6 overflow-y-auto">Gerente de Sucursal</h5>
+
+            {{-- Alerta de asignación de gerente solo en creación --}}
+            @if (!$branch)
+            <div class="p-2 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700">
+                <p class="text-sm">Una vez asignado en el registro, el gerente no puede ser cambiado.</p>
+            </div>
+            @endif
             @include('admin.managersList')
 
             <button type="submit"
@@ -54,14 +61,14 @@
     </form>
 
     @if ($branch)
-        <br>
-        <div class="bg-white w-full h-[1px] mb-8"></div>
-        <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Empleados de la Sucursal</h3>
+    <br>
+    <div class="bg-white w-full h-[1px] mb-8"></div>
+    <h3 class="text-3xl md:text-5xl text-center font-bold my-5">Empleados de la Sucursal</h3>
 
-        <br>
-        @include('components.requestAlerts')
-        <br>
+    <br>
+    @include('components.requestAlerts')
+    <br>
 
-        <livewire:employees-list :branchId="$branch->id">
-    @endif
-@endsection
+    <livewire:employees-list :branchId="$branch->id">
+        @endif
+        @endsection
