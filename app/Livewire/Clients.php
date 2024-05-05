@@ -18,19 +18,28 @@ class Clients extends Component
     public function render()
     {
         // Obtener la sucursal asociada al ID
-        $branch = Branch::find($this->branchId);
-
-        $userIds = $branch->users->pluck('user_id')->toArray();
+        $branch = Branch::with('users')->find($this->branchId);
 
         if ($branch) {
-            // Obtén los usuarios que tienen los IDs encontrados en la sucursal
-            $clients = User::whereIn('id', $userIds)->role('Cliente')->get();
+            // Filtrar usuarios que son 'Cliente' o 'Prestamista' en una sola consulta
+            $users = $branch->users->filter(
+                function ($mapping) {
+                    $user = $mapping->user; // Accede al modelo 
+    
+                    if ($user) {
+                        $roleNames = $user->getRoleNames();
+
+                        return $roleNames->contains('Cliente') || $roleNames->contains('Prestamista');
+                    }
+                    return false;
+                }
+            )->pluck('user');
         } else {
-            $clients = [];
+            $users = [];
         }
 
         return view('livewire.clients', [
-            'clients' => $clients,
+            'users' => $users,
         ]);
     }
 }

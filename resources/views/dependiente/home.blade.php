@@ -75,6 +75,8 @@ Dependiente de Banco
                 max="10000" step="0.01" id="mount" />
         </div>
 
+        <input type="hidden" id="dependId" value="{{Auth::user()->id}}">
+
         <button type="submit"
             class="uppercase bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md w-full">
             Realizar transsacción

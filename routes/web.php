@@ -32,15 +32,17 @@ Route::get('/', HomeController::class);
 
 // Autenticación =================================
 
-Route::prefix('login')->name('login.')->group(function () {
-    Route::get('/', [ClientLoginController::class, 'index'])->name('index');
-    Route::post('/', [ClientLoginController::class, 'store'])->name('store');
-});
+// Ruta para el formulario de inicio de sesión
+Route::get('/login', [ClientLoginController::class, 'index'])->name('login');  // Esta es la ruta que Laravel busca por defecto
+// Ruta para procesar el formulario de inicio de sesión
+Route::post('/login', [ClientLoginController::class, 'store'])->name('login.store');
 
+// Registro de usuario
 Route::prefix('register')->name('register.')->group(function () {
     Route::get('/', [ClientRegisterController::class, 'index'])->name('index');
     Route::post('/', [ClientRegisterController::class, 'store'])->name('store');
 });
+
 
 
 // Rutas Administrativas ===================================================================

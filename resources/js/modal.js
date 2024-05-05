@@ -41,8 +41,9 @@ form.addEventListener('submit', (e) => {
     let mount = document.querySelector('#mount').value;
     let idAccount = document.querySelector('#idAccount').textContent;
     let oldMount = document.querySelector('#mountAccount').textContent;
+    let dependienteId = document.querySelector('#dependId').value;
 
-    realizarTransaccion(oldMount, idAccount, typeTransa, mount);
+    realizarTransaccion(oldMount, idAccount, typeTransa, mount, dependienteId);
 });
 
 span.onclick = function () {
@@ -56,7 +57,7 @@ window.onclick = function (event) {
 }
 
 // Función para realizar la transacción
-function realizarTransaccion(oldMount, idAccount, typeTransa, mount) {
+function realizarTransaccion(oldMount, idAccount, typeTransa, mount, dependienteId) {
     oldMount = parseInt(oldMount.replace('$', ''));
     idAccount = idAccount.trim();
 
@@ -70,7 +71,8 @@ function realizarTransaccion(oldMount, idAccount, typeTransa, mount) {
         axios.post(transacURL, {
             idAccount: +idAccount,
             type: typeTransa,
-            amount: +mount
+            amount: +mount,
+            dependienteId: +dependienteId
         }).then((response) => {
             alert('Transacción realizada con éxito');
             actualizarSaldoDOM(idAccount, response.data.newBalance);
@@ -83,7 +85,8 @@ function realizarTransaccion(oldMount, idAccount, typeTransa, mount) {
         axios.post(transacURL, {
             idAccount: +idAccount,
             type: typeTransa,
-            amount: +mount
+            amount: +mount,
+            dependienteId: +dependienteId
         }).then((response) => {
             alert('Transacción realizada con éxito');
             actualizarSaldoDOM(idAccount, response.data.newBalance);

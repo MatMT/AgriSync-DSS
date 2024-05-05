@@ -30,8 +30,8 @@ class TransactionController extends Controller
         // Registro de Transacción
         $transaccion = new Transaction();
         $transaccion->amount = $request->amount;
+        $transaccion->admin_id = $request->dependienteId;
         $transaccion->description = 'Transacción de Dependiente';
-        $transaccion->admin_id = null;
 
         // Manejo de cantidad de dinero dentro de cuentas
         $cuenta = Account::findOrFail($request->idAccount);
