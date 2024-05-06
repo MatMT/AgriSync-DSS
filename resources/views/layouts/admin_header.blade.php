@@ -11,8 +11,20 @@
                 </div>
             </div>
 
-            <div class="md:px-12 pt-8 text-center">
-                <a href="{{ route('admin.gg.home', Auth::user()->id) }}" class=" uppercase">Inicio</a>
+            <div class="md:px-12 pt-8 text-center flex md:flex-row flex-col gap-4">
+                <a href="{{ route('admin.gg.home', Auth::user()->id) }}"
+                    class="uppercase bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Inicio
+                </a>
+                <div class="uppercase bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="">
+                        Cerrar Sesión
+                    </a>
+                </div>
             </div>
 
         </div>

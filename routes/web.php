@@ -55,6 +55,9 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
         Route::post('/', [AdminLoginController::class, 'store'])->name('store');
     });
 
+    // Ruta para cerrar sesión
+    Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
+
     // Gerente General =============================== Acceso según Rol
     Route::group(['prefix' => '/gerente-general', 'as' => 'gg.'], function () {
         Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');

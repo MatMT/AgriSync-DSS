@@ -32,4 +32,10 @@ class LoginController extends Controller
         // Redireccionar utilizando el servicio ============
         return RedirectService::redirectToRole($admin);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('admin.login.index');
+    }
 }

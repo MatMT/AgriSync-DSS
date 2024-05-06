@@ -28,4 +28,10 @@ class Branch extends Model
     {
         return $this->hasMany(UsersMapping::class, 'branch_id');
     }
+
+    // Dependientes de la Sucursal
+    public function usersMappings()
+    {
+        return $this->hasMany(UsersMapping::class, 'branch_id', 'id');
+    }
 }

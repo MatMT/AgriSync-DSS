@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\Branch;
 use Illuminate\Http\Request;
@@ -22,17 +23,34 @@ class BranchesController extends Controller
     {
         $branch = null;
         $solicitudes = null;
+        $dependientes = null;
+        $movimientosDependientes = null;
         $header = 'Sucursales';
         $subheader = 'Registrando una nueva sucursal';
 
         // Si se recibe un id, se busca la sucursal
         if ($id) {
+            $dependienteIds = [];
             $branch = Branch::findOrFail($id);
             $gerente = $branch->gerente()->first();
             $header = $branch->name;
             $subheader = 'Administrando una sucursal ';
+
             $solicitudes = EmployeeRequest::where('manager_id', $gerente->id)
                 ->where('status_id', 7)->get();
+
+            if ($branch->usersMappings) {
+                foreach ($branch->usersMappings as $mapping) {
+                    if ($mapping->user->hasRole('Dependiente')) {
+                        $dependientes[] = $mapping->user;
+                        $dependienteIds[] = $mapping->user->id;
+                    }
+                }
+            }
+
+            $movimientosDependientes = Transaction::whereIn('admin_id', $dependienteIds)
+                ->get();
+
         }
 
         $managersDisp = User::role('Gerente Sucursal')
@@ -47,13 +65,17 @@ class BranchesController extends Controller
                 ->withErrors(['no_managers' => 'No Hay Gerentes Disponibles, primero agrega uno.']);
         }
 
+        // Movimientos de Dependientes
+
         return view('admin.branches', [
             'header' => $header,
             'subHeader' => $subheader,
             'branch' => $branch ?? null,
             'gerente' => $gerente ?? null,
             'gerentes' => $managersDisp,
-            'solicitudes' => $solicitudes
+            'solicitudes' => $solicitudes,
+            'dependientes' => $dependientes,
+            'movsDependientes' => $movimientosDependientes
         ]);
     }
 

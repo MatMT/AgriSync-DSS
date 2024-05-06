@@ -29,11 +29,10 @@ class EmployeesList extends Component
 
         // Itera sobre cada instancia de UsersMapping en la colección
         foreach ($employeesMapping as $employeeMap) {
-            $role = $employeeMap->user->getRoleNames();
+            $roles = $employeeMap->user->getRoleNames();
 
-            if ($role != 'Prestamista' || $role != 'Cliente') {
-                // Accede al usuario asociado a esta instancia de UsersMapping a través de la relación user()
-                $employees[] = $employeeMap->user; // Agrega el usuario a la colección de empleados
+            if (!$roles->contains('Prestamista') && !$roles->contains('Cliente') && !$roles->contains('Dependiente')) {
+                $employees[] = $employeeMap->user;
             }
         }
 

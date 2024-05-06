@@ -14,7 +14,7 @@
                 <th scope="col" class="px-6 py-3">
                     Fecha de Registro
                 </th>
-                <th scope="col" class="px-6 py-3">
+                <th scope="col" class=" px-6 py-3">
                     Acción
                 </th>
             </tr>

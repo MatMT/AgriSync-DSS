@@ -19,6 +19,7 @@ class UsersMappingSeeder extends Seeder
         $sucursalLiberCash = Branch::where('name', 'LibertCash')->first();
         $oscarGerente = User::where('email', 'oscar@agrisync.com')->first();
         $normanCliente = User::where('email', 'norman@agrisync.com')->first();
+        $dayanaDependiente = User::where('email', 'dayana@agrisync.com')->first();
 
         UsersMapping::create([
             'branch_id' => $sucursalLiberCash->id,
@@ -28,6 +29,11 @@ class UsersMappingSeeder extends Seeder
         UsersMapping::create([
             'branch_id' => $sucursalLiberCash->id,
             'user_id' => $normanCliente->id
+        ]);
+
+        UsersMapping::create([
+            'branch_id' => $sucursalLiberCash->id,
+            'user_id' => $dayanaDependiente->id
         ]);
     }
 }
