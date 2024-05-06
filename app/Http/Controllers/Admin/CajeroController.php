@@ -12,4 +12,12 @@ class CajeroController extends Controller
     {
         $this->middleware(['role:Cajero']);
     }
+
+    public function index($id = null)
+    {
+        $branch = null;
+        $solicitudes = null;
+        $header = 'Cajero';
+        $subheader = 'Funcionalidades';
+    }
 }

@@ -93,8 +93,7 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 
 Route::group(['prefix' => '/cajero', 'as' => 'cj.'], function () {
     // Cajero =============================== Acceso según Rol
-    Route::get('/{user}', [HomeGerenteGeneral::class, 'index'])->name('home');
-    Route::post('/{user}', [CajeroController::class, ''])->name('logout');
+    Route::get('/{user}', [CajeroController::class, 'index'])->name('home');
 })->middleware(['role:Cajero']);
 
 
@@ -107,4 +106,3 @@ Route::group(['prefix' => '/cliente', 'as' => 'client.'], function () {
 Route::group(['prefix' => '/dependiente', 'as' => 'depend.'], function () {
     Route::get('/{user}', [DependienteController::class, 'index'])->name('home');
 });
-

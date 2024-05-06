@@ -61,9 +61,9 @@ class AdminSeeder extends Seeder
         ])->assignRole(['Dependiente']);
 
         User::create([
-            'names' => 'Luis Ernesto',
-            'last_names' => 'Marquéz Rivas',
-            'email' => 'luis@agrisync.com',
+            'names' => 'Victor Rafaek',
+            'last_names' => 'Cornejo Garcia',
+            'email' => 'victor@agrisync.com',
             'password' => Hash::make('con123'),
             'gender' => 'M',
             'DUI' => '12345678-7',
@@ -87,6 +87,5 @@ class AdminSeeder extends Seeder
                 'status_id' => $statePending->id
             ]
         )->assignRole(['Cliente']);
-
     }
 }

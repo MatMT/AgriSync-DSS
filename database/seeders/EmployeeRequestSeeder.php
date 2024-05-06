@@ -20,7 +20,7 @@ class EmployeeRequestSeeder extends Seeder
         // Obtener Gerente de Sucursal
         $managerLibertCash = User::where('email', 'oscar@agrisync.com')->first();
         // Obtener Empleado solicitado
-        $newEmployee = User::where('email', 'luis@agrisync.com')->first();
+        $newEmployee = User::where('email', 'victor@agrisync.com')->first();
 
         // Roles ===================================
         EmployeeRequest::create([
