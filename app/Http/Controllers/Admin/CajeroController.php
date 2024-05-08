@@ -19,5 +19,12 @@ class CajeroController extends Controller
         $solicitudes = null;
         $header = 'Cajero';
         $subheader = 'Funcionalidades';
+
+        return view('cajero.index', [
+            'branch' => $branch,
+            'solicitudes' => $solicitudes,
+            'header' => $header,
+            'subHeader' => $subheader
+        ]);
     }
 }
