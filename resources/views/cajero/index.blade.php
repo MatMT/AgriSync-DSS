@@ -6,6 +6,10 @@
 
 @section('contenido')
 <div class="">
-    @include('cajero.userForm')
+    @include('cajero.userCreate')
 </div>
+<div>
+    @include('cajero.usersView')
+</div>
+
 @endsection

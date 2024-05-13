@@ -94,7 +94,9 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.'], function () {
 Route::group(['prefix' => '/cajero', 'as' => 'cj.'], function () {
     // Cajero =============================== Acceso según Rol
     Route::get('/{user}', [CajeroController::class, 'index'])->name('home');
+    Route::get('/new-user-form', [CajeroController::class, 'showUserForm'])->name('newUserForm');  // Cambiado a 'showUserForm'
 })->middleware(['role:Cajero']);
+
 
 
 Route::group(['prefix' => '/cliente', 'as' => 'client.'], function () {
